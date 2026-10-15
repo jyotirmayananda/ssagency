@@ -22,6 +22,27 @@ export const FLEET_VEHICLES: FleetVehicle[] = [
     },
   },
   {
+    id: 'atm-cash-van-unit',
+    title: 'ATM Cash-in-Transit (CIT) Security Van',
+    plateNumber: 'OD 15 A 6789',
+    model: 'Mahindra Bolero CIT Security Van',
+    category: 'patrol',
+    description:
+      'Secured Mahindra Bolero Cash-in-Transit (CIT) vehicle equipped with protective wire mesh, separate vault compartment, and armed escort team for bank ATM cash logistics in Sambalpur.',
+    image: '/images/services/atm-cash-van.jpg',
+    thumbnail: '/images/services/atm-cash-van.jpg',
+    details: {
+      role: 'ATM Cash Replenishment & Bank Currency Transit',
+      area: 'Sambalpur & Western Odisha Banking Network',
+      features: [
+        'Reinforced protective steel window mesh grills',
+        'Dual-custody internal cash vault compartments',
+        'Dedicated armed security guard escort crew',
+        'Real-time GPS tracking and live control room telemetry',
+      ],
+    },
+  },
+  {
     id: 'patrol-trio-unit',
     title: 'Field Response & Patrol Trio',
     plateNumber: 'OD 15 AA 0698 / OD 15 X 5308 / OD 23 R 6102',

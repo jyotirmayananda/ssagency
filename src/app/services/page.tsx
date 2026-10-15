@@ -1,19 +1,21 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PageHero } from '@/components/layout/PageHero';
 import { ContactCTASection } from '@/components/home/ContactCTASection';
 import { SERVICES } from '@/data/services';
-import { ShieldCheck, ChefHat, Sparkles, CarFront, ArrowUpRight, Check } from 'lucide-react';
+import { ShieldCheck, Truck, ChefHat, Sparkles, CarFront, ArrowUpRight, Check } from 'lucide-react';
 import { Highlight } from '@/components/chaiui/highlight';
 
 export const metadata: Metadata = {
   title: 'All services: Security and Manpower Solutions',
   description:
-    'Explore our professional security guard services, cooking staff, cleaning and housekeeping manpower, and four-wheeler drivers in Sambalpur, Odisha.',
+    'Explore our professional security guard services, ATM cash van solutions, cooking staff, cleaning and housekeeping manpower, and four-wheeler drivers in Sambalpur, Odisha.',
 };
 
 const iconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="size-5 text-brand" />,
+  Truck: <Truck className="size-5 text-brand" />,
   ChefHat: <ChefHat className="size-5 text-brand" />,
   Sparkles: <Sparkles className="size-5 text-brand" />,
   CarFront: <CarFront className="size-5 text-brand" />,
@@ -35,26 +37,39 @@ export default function ServicesPage() {
           <article
             key={service.id}
             id={service.slug}
-            className="card-chai p-6 sm:p-8 transition-opacity sm:opacity-90 sm:hover:opacity-100"
+            className="card-chai p-6 sm:p-7 transition-opacity sm:opacity-90 sm:hover:opacity-100"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Left Details */}
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card shrink-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              {/* Left Photo Frame */}
+              <div className="lg:col-span-4">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-card-edge bg-card">
+                  <Image
+                    src={service.heroImage}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+
+              {/* Middle Details */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="size-9 rounded-lg border border-card-edge flex items-center justify-center bg-card shrink-0">
                     {iconMap[service.iconName]}
                   </div>
                   <div>
-                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block">
+                    <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider block">
                       0{idx + 1} &bull; {service.category}
                     </span>
-                    <h2 className="font-montserrat text-xl sm:text-2xl font-semibold text-foreground">
+                    <h2 className="font-montserrat text-lg sm:text-xl font-semibold text-foreground">
                       {service.title}
                     </h2>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {service.overview}
                 </p>
 
@@ -75,7 +90,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Right CTA column */}
-              <div className="lg:col-span-4 p-5 rounded-xl border border-card-edge bg-card-fill space-y-4">
+              <div className="lg:col-span-3 p-4 sm:p-5 rounded-xl border border-card-edge bg-card-fill space-y-3">
                 <div>
                   <h3 className="font-montserrat text-sm font-semibold text-foreground mb-1">
                     Need this service?

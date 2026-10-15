@@ -1,9 +1,9 @@
-'use client';
-
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ShieldCheck,
+  Truck,
   ChefHat,
   Sparkles,
   CarFront,
@@ -14,10 +14,11 @@ import { Highlight } from '@/components/chaiui/highlight';
 import { SERVICES } from '@/data/services';
 
 const serviceIconMap: Record<string, React.ReactNode> = {
-  ShieldCheck: <ShieldCheck className="size-5 text-brand" />,
-  ChefHat: <ChefHat className="size-5 text-brand" />,
-  Sparkles: <Sparkles className="size-5 text-brand" />,
-  CarFront: <CarFront className="size-5 text-brand" />,
+  ShieldCheck: <ShieldCheck className="size-4 text-orange-200" />,
+  Truck: <Truck className="size-4 text-orange-200" />,
+  ChefHat: <ChefHat className="size-4 text-orange-200" />,
+  Sparkles: <Sparkles className="size-4 text-orange-200" />,
+  CarFront: <CarFront className="size-4 text-orange-200" />,
 };
 
 export function ServicesSection() {
@@ -44,16 +45,26 @@ export function ServicesSection() {
         </Link>
       </div>
 
-      {/* 4 ChaiUI Service Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* 5 ChaiUI Service Cards with Real Photos */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {SERVICES.map((service) => (
           <article
             key={service.id}
-            className="card-chai group flex flex-col justify-between p-5 transition-all duration-300 sm:opacity-90 sm:hover:opacity-100"
+            className="card-chai group flex flex-col justify-between p-4 transition-all duration-300 sm:opacity-90 sm:hover:opacity-100"
           >
             <div>
-              <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card mb-4 group-hover:border-card-edge-hover transition-colors">
-                {serviceIconMap[service.iconName]}
+              {/* Service Visual Frame with Floating Icon Badge */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg mb-3.5 border border-card-edge bg-card">
+                <Image
+                  src={service.heroImage}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
+                />
+                <div className="absolute top-2.5 left-2.5 size-7 rounded-md bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                  {serviceIconMap[service.iconName]}
+                </div>
               </div>
 
               <h3 className="font-montserrat text-base font-semibold text-foreground mb-2">

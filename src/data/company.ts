@@ -2,19 +2,19 @@ import { ProcessStep, ValueCardItem, IndustryCard } from '@/types';
 
 export const TRUST_VALUE_CARDS: ValueCardItem[] = [
   {
-    title: 'Safety-Focused Approach',
+    title: 'Safety-focused approach',
     description:
       'Prioritizing proactive vigilance, disciplined post monitoring, and orderly premises security tailored to your exact site specifications.',
     icon: 'ShieldCheck',
   },
   {
-    title: 'Service-Oriented Support',
+    title: 'Service-oriented support',
     description:
       'Attentive manpower coordination backed by responsive supervisory check-ins, clear reporting, and open client communication channels.',
     icon: 'UserCheck',
   },
   {
-    title: 'Flexible Manpower Solutions',
+    title: 'Flexible manpower solutions',
     description:
       'Adaptable staffing configurations ranging from dedicated security guards and corporate housekeeping to professional cooks and verified 4-wheeler drivers.',
     icon: 'Layers',
@@ -33,7 +33,7 @@ export const CORE_VALUES = [
       'Uniformed, punctual, and respectful personnel who uphold your organization’s reputational standards and workplace discipline.',
   },
   {
-    title: 'Client Satisfaction',
+    title: 'Client satisfaction',
     description:
       'We listen closely to operational nuances and continuously refine duty arrangements to meet evolving site requirements.',
   },
@@ -41,37 +41,37 @@ export const CORE_VALUES = [
 
 export const WHY_CHOOSE_US = [
   {
-    title: 'Client-Focused Service',
+    title: 'Client-focused service',
     description:
       'Every client has unique operational parameters. We tailor deployments to your facility layout, work shifts, and access policies.',
     icon: 'HeartHandshake',
   },
   {
-    title: 'Multiple Manpower Solutions',
+    title: 'Multiple manpower solutions',
     description:
       'One reliable local partner in Sambalpur for security guards, corporate cleaning, experienced kitchen cooks, and skilled drivers.',
     icon: 'Briefcase',
   },
   {
-    title: 'Local Service Presence',
+    title: 'Local service presence',
     description:
       'Based centrally in Saraswati Vihar, Ainthapali, Sambalpur, enabling rapid local coordination and close on-ground oversight.',
     icon: 'MapPin',
   },
   {
-    title: 'Clear Communication',
+    title: 'Clear communication',
     description:
       'Transparent enquiry channels via direct calls, WhatsApp messaging, and dedicated supervisory contacts without bureaucratic delays.',
     icon: 'MessageSquare',
   },
   {
-    title: 'Flexible Enquiry Options',
+    title: 'Flexible enquiry options',
     description:
       'Enquire for single-post security guards, multi-shift deployments, short-term assignments, or comprehensive facility manpower.',
     icon: 'Sliders',
   },
   {
-    title: 'Professional Approach',
+    title: 'Professional approach',
     description:
       'Our team respects client protocol, privacy, and operating guidelines to deliver seamless day-to-day operational support.',
     icon: 'Award',
@@ -81,33 +81,63 @@ export const WHY_CHOOSE_US = [
 export const WORKING_PROCESS: ProcessStep[] = [
   {
     step: '01',
-    title: 'Share Your Requirement',
+    title: 'Share your requirement',
     description:
       'Reach out via phone (+91 7853979637), WhatsApp, or our online quote form detailing your required service, location, and staff count.',
+    icon: 'PhoneCall',
+    highlights: [
+      'Phone, WhatsApp, or web enquiry',
+      'Location and staff count specification',
+      'Prompt same-day response',
+    ],
   },
   {
     step: '02',
-    title: 'Discuss Service Needs',
+    title: 'Discuss service needs',
     description:
       'We conduct a detailed consultation to understand your premise layout, shift timings, specific duties, and expected timeline.',
+    icon: 'Users',
+    highlights: [
+      'Premise layout and gate inspection',
+      'Duty shift timings and post mapping',
+      'Site-specific security guidelines',
+    ],
   },
   {
     step: '03',
-    title: 'Review Available Options',
+    title: 'Review tailored options',
     description:
       'We present tailored manpower recommendations, shift configurations, and clear commercial terms suited to your operational goals.',
+    icon: 'FileSpreadsheet',
+    highlights: [
+      'Police-verified personnel allotment',
+      'Transparent commercial structure',
+      'Customizable shift rotation schedules',
+    ],
   },
   {
     step: '04',
-    title: 'Confirm the Arrangement',
+    title: 'Confirm the arrangement',
     description:
       'Once terms are aligned, we finalize service schedules, duty protocols, post-orders, and emergency escalation lines.',
+    icon: 'ShieldCheck',
+    highlights: [
+      'Signed service agreement',
+      'Standard operating post orders',
+      'Designated supervisor assigned',
+    ],
   },
   {
     step: '05',
-    title: 'Service Coordination',
+    title: 'Service coordination',
     description:
       'Deployment begins with active on-ground supervision, periodic review meetings, and continuous support to ensure smooth daily operations.',
+    icon: 'Radio',
+    highlights: [
+      'Uniformed on-ground deployment',
+      'Vehicle patrol inspection rounds',
+      '24/7 emergency supervisory response',
+    ],
   },
 ];
 

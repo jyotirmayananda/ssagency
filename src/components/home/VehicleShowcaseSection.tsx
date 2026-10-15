@@ -68,7 +68,7 @@ export function VehicleShowcaseSection() {
 
               <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white space-y-1.5">
                 <span className="font-mono text-[10px] tracking-wider text-orange-200 uppercase">
-                  Featured Formation
+                  Featured formation
                 </span>
                 <h3 className="font-montserrat text-lg sm:text-xl font-semibold leading-snug">
                   {featured.title}

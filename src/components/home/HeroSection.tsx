@@ -17,7 +17,7 @@ export function HeroSection() {
             Licensed security and manpower solutions
           </AnimatedBadge>
 
-          <h1 className="text-[38px] sm:text-[46px] md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.12]">
+          <h1 className="text-3xl sm:text-[46px] md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground leading-[1.12]">
             Your safety. Our priority.
           </h1>
 
@@ -26,10 +26,10 @@ export function HeroSection() {
             <Highlight>dependable protection every day</Highlight>.
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-4">
+          <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <Link
               href="/request-quote"
-              className="btn-asym inline-flex h-10 items-center gap-2 bg-neutral-900 px-5 text-sm font-medium text-white transition-colors duration-200 hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+              className="btn-asym inline-flex h-11 sm:h-10 items-center justify-center gap-2 bg-neutral-900 px-5 text-sm font-medium text-white transition-colors duration-200 hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
             >
               <span>Request a quote</span>
               <ArrowUpRight className="-ml-1 size-4" />
@@ -37,7 +37,7 @@ export function HeroSection() {
 
             <Link
               href="/services"
-              className="btn-asym-mirror inline-flex h-10 items-center gap-2 border border-border bg-transparent px-5 text-sm font-medium transition-colors hover:bg-neutral-100 dark:hover:bg-black/90 text-foreground"
+              className="btn-asym-mirror inline-flex h-11 sm:h-10 items-center justify-center gap-2 border border-border bg-transparent px-5 text-sm font-medium transition-colors hover:bg-neutral-100 dark:hover:bg-black/90 text-foreground"
             >
               <span>Explore services</span>
               <ChevronsDown className="-ml-1 size-4" />

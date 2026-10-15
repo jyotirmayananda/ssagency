@@ -8,6 +8,7 @@ import { ServiceDetail } from '@/types';
 import { SERVICES } from '@/data/services';
 import {
   ShieldCheck,
+  Truck,
   ChefHat,
   Sparkles,
   CarFront,
@@ -21,6 +22,7 @@ import { COMPANY } from '@/lib/constants';
 
 const iconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="size-5 text-brand" />,
+  Truck: <Truck className="size-5 text-brand" />,
   ChefHat: <ChefHat className="size-5 text-brand" />,
   Sparkles: <Sparkles className="size-5 text-brand" />,
   CarFront: <CarFront className="size-5 text-brand" />,

@@ -10,7 +10,7 @@ export const SERVICES: ServiceDetail[] = [
     iconName: 'ShieldCheck',
     metaDescription:
       'Professional security guard services in Sambalpur, Odisha for commercial offices, residential communities, institutions, and industrial sites.',
-    heroImage: '/images/fleet/fleet-formation-patrol.jpg',
+    heroImage: '/images/services/security-guards.jpg',
     overview:
       'S.S. Agency provides dependable security personnel solutions for commercial properties, offices, residential premises, institutions, and other facilities across Sambalpur and Western Odisha. Our security personnel are deployed with strict post guidelines, smart uniforms, and a clear focus on vigilance and visitor management.',
     keyFeatures: [
@@ -116,6 +116,99 @@ export const SERVICES: ServiceDetail[] = [
     ],
   },
   {
+    id: 'atm-cash-van-services',
+    slug: 'atm-cash-van',
+    title: 'ATM Cash Van & CIT Services',
+    shortTitle: 'ATM Cash Van',
+    category: 'Cash-in-Transit & Armed Logistics',
+    iconName: 'Truck',
+    metaDescription:
+      'Secure ATM cash van and Cash-in-Transit (CIT) logistics services in Sambalpur and Western Odisha with specialized Mahindra security vans, armed guards, and GPS tracking.',
+    heroImage: '/images/services/atm-cash-van.jpg',
+    overview:
+      'S.S. Agency is a trusted provider of secure Cash-in-Transit (CIT) and ATM cash replenishment van services in Sambalpur and Western Odisha. Equipped with specialized Mahindra security vans featuring steel reinforced window grills, internal security vaults, GPS live tracking, and verified armed security personnel, we deliver dependable cash logistics for banking institutions, retail chains, and commercial establishments.',
+    keyFeatures: [
+      'Specialized cash transit vans',
+      'Armed security guard escort',
+      'GPS route tracking & panic systems',
+      'Bank and statutory compliance',
+    ],
+    scopeOfService: [
+      {
+        title: 'ATM Cash Replenishment & Servicing',
+        description: 'Disciplined transit logistics and custodian protection during scheduled ATM machine replenishment cycles.',
+        bullets: [
+          'Scheduled vault cash delivery and cassette replenishment',
+          'Perimeter armed guard cordon during cash loading operations',
+          'Multi-tier dual-custody key management protocols',
+          'Strict route timing and immediate incident escalation',
+        ],
+      },
+      {
+        title: 'Bank Branch & Commercial Cash-in-Transit',
+        description: 'Secure armed transportation of cash, precious valuables, and commercial collections between bank branches and currency chests.',
+        bullets: [
+          'Armored and grilled transit vehicle with secure partitioned vault compartment',
+          'Trained drivers with defensive transit maneuvers and police-verified credentials',
+          'Real-time satellite GPS tracking with live dispatch center monitoring',
+          'Scheduled retail cash pickup and banking drop services',
+        ],
+      },
+      {
+        title: 'Armed Cash Escort & Emergency Support',
+        description: 'Dedicated armed guards and escort patrol vehicles for high-value financial movements across Western Odisha.',
+        bullets: [
+          'Licensed armed personnel with certified firearms training',
+          'Secondary escort vehicle coordination for long-distance routes',
+          '24/7 central operational control room oversight',
+        ],
+      },
+    ],
+    potentialUseCases: [
+      {
+        title: 'Public & Private Commercial Banks',
+        description: 'Daily branch-to-chest cash transit and automated teller machine (ATM) replenishments across Sambalpur.',
+      },
+      {
+        title: 'Retail Showrooms & Hypermarkets',
+        description: 'Evening and end-of-week sales revenue collection with secure transport directly to designated banks.',
+      },
+      {
+        title: 'Corporate & Industrial Cash Payroll Transit',
+        description: 'Secure physical currency logistics for remote site workforce payroll disbursements.',
+      },
+    ],
+    benefits: [
+      {
+        title: 'Full Statutory & RBI CIT Guideline Adherence',
+        description: 'Operations conform to Ministry of Home Affairs and Reserve Bank of India standards for cash transport agencies.',
+      },
+      {
+        title: 'Specialized Protected Vehicle Fleet',
+        description: 'In-house Mahindra fleet fitted with safety grills, secure partitions, fire extinguishers, and emergency alarms.',
+      },
+    ],
+    enquiryProcess: [
+      'Submit route, frequency, and cash transit requirement via phone or online quote form.',
+      'Risk assessment and route planning consultation with our Sambalpur operational team.',
+      'Deployment of certified vehicle, armed personnel, and GPS coordination.',
+    ],
+    faqs: [
+      {
+        question: 'What security features are equipped on S.S. Agency ATM cash vans?',
+        answer: 'Our cash-in-transit vans are customized with reinforced window wire mesh grills, separate secure vault compartments, vehicle immobilizers, GPS tracking, and two-way radio communication.',
+      },
+      {
+        question: 'Are the armed guards deployed on ATM cash vans licensed?',
+        answer: 'Yes, all armed guards carry valid firearm licenses, undergo comprehensive police verification, and have disciplined training in close-quarter transit protection.',
+      },
+      {
+        question: 'Which regions in Odisha are covered for cash transit operations?',
+        answer: 'We operate centrally from Sambalpur and service routes across Western Odisha including Jharsuguda, Bargarh, Burla, and surrounding industrial hubs.',
+      },
+    ],
+  },
+  {
     id: 'cook-services',
     slug: 'cook-services',
     title: 'Cook Services',
@@ -124,7 +217,7 @@ export const SERVICES: ServiceDetail[] = [
     iconName: 'ChefHat',
     metaDescription:
       'Reliable cooking staff and culinary manpower in Sambalpur for residential homes, corporate guest houses, hostels, and institutions.',
-    heroImage: '/images/fleet/fleet-trio-patrol.jpg',
+    heroImage: '/images/services/cook-services.jpg',
     overview:
       'S.S. Agency provides cooking staff solutions for residential, institutional, and commercial requirements. Whether you require a dependable daily cook for your household, a mess cook for student hostels, or kitchen assistance for guest houses, we help match skilled culinary staff tailored to your tastes and dietary preferences.',
     keyFeatures: [
@@ -232,7 +325,7 @@ export const SERVICES: ServiceDetail[] = [
     iconName: 'Sparkles',
     metaDescription:
       'Professional cleaning and housekeeping manpower in Sambalpur, Odisha for offices, residential complexes, commercial showrooms, and facilities.',
-    heroImage: '/images/fleet/fleet-formation-patrol.jpg',
+    heroImage: '/images/services/cleaning-staff.jpg',
     overview:
       'S.S. Agency provides reliable cleaning and housekeeping manpower for workplaces, residential facilities, and commercial premises across Sambalpur. A clean, sanitary environment is crucial for workplace health, customer impression, and daily productivity. We supply disciplined housekeeping staff trained in thorough dusting, mopping, sanitation, and waste handling.',
     keyFeatures: [
@@ -340,7 +433,7 @@ export const SERVICES: ServiceDetail[] = [
     iconName: 'CarFront',
     metaDescription:
       'Experienced four-wheeler drivers in Sambalpur, Odisha for personal cars, corporate transportation, business travel, and fleet driving.',
-    heroImage: '/images/fleet/vehicle-patrol-6102.jpg',
+    heroImage: '/images/services/driver-services.jpg',
     overview:
       'S.S. Agency provides driver manpower solutions for clients requiring reliable four-wheeler driving support. From dedicated personal chauffeur services and family travel in Sambalpur to business transit, commercial vehicle driving, and site transport across Odisha, our drivers are courteous, route-familiar, and safety-conscious.',
     keyFeatures: [
