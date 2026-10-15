@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <defs>
+    <linearGradient id="goldOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FDE68A" />
+      <stop offset="25%" stopColor="#D4AF37" />
+      <stop offset="50%" stopColor="#F59E0B" />
+      <stop offset="75%" stopColor="#D4AF37" />
+      <stop offset="100%" stopColor="#B45309" />
+    </linearGradient>
+    <linearGradient id="innerNavy" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#0B2B50" />
+      <stop offset="60%" stopColor="#061A32" />
+      <stop offset="100%" stopColor="#031225" />
+    </linearGradient>
+    <linearGradient id="starLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFFBEB" />
+      <stop offset="60%" stopColor="#FBBF24" />
+      <stop offset="100%" stopColor="#D4AF37" />
+    </linearGradient>
+    <linearGradient id="starShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#D4AF37" />
+      <stop offset="50%" stopColor="#B45309" />
+      <stop offset="100%" stopColor="#78350F" />
+    </linearGradient>
+  </defs>
+  <path d="M50 4 L88 20 C88 56 74 94 50 114 C26 94 12 56 12 20 Z" fill="url(#goldOuter)" />
+  <path d="M50 12 L80 24 C80 52 68 85 50 102 C32 85 20 52 20 24 Z" fill="url(#innerNavy)" stroke="#D4AF37" stroke-width="1.5" />
+  <g transform="translate(50, 52) scale(0.85)">
+    <polygon points="0,0 0,-34 10,-10" fill="url(#starLight)" />
+    <polygon points="0,0 0,-34 -10,-10" fill="url(#starShadow)" />
+    <polygon points="0,0 32,-10 12,5" fill="url(#starLight)" />
+    <polygon points="0,0 32,-10 10,-10" fill="url(#starShadow)" />
+    <polygon points="0,0 20,28 0,14" fill="url(#starLight)" />
+    <polygon points="0,0 20,28 12,5" fill="url(#starShadow)" />
+    <polygon points="0,0 -20,28 -12,5" fill="url(#starLight)" />
+    <polygon points="0,0 -20,28 0,14" fill="url(#starShadow)" />
+    <polygon points="0,0 -32,-10 -10,-10" fill="url(#starLight)" />
+    <polygon points="0,0 -32,-10 -12,5" fill="url(#starShadow)" />
+  </g>
+</svg>
