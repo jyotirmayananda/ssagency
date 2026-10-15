@@ -39,7 +39,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-5',
-    title: 'Field Officer Inspection Round — Unit 5308',
+    title: 'Field Officer Inspection Round: Unit 5308',
     category: 'operations',
     image: '/images/about/officer-inspection-vehicle.jpg',
     caption:

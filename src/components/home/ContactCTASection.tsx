@@ -2,65 +2,45 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Phone, MessageCircle, FileText, Shield } from 'lucide-react';
-import { FadeIn } from '@/components/animations/MotionWrapper';
+import { Phone, MessageCircle } from 'lucide-react';
+import { CtaPanel } from '@/components/chaiui/cta-panel';
 import { COMPANY } from '@/lib/constants';
 import { buildWhatsAppLink } from '@/lib/utils';
 
 export function ContactCTASection() {
   return (
-    <section className="py-20 sm:py-24 bg-gradient-to-b from-[#061A32] via-[#0B2B50] to-[#031225] border-t border-slate-200 relative overflow-hidden text-white">
-      {/* Decorative Security Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-        <Shield className="w-[600px] h-[600px] text-[#D4AF37]" />
-      </div>
+    <section className="max-w-6xl mx-auto px-6 py-12 sm:px-12 sm:py-16">
+      <CtaPanel
+        heading="Need reliable security or manpower services?"
+        tagline="Tell us what you need. Contact our supervisory team in Sambalpur to discuss your requirements and receive a clear proposal."
+        action={{
+          label: 'Request a proposal',
+          href: '/request-quote',
+        }}
+      />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <FadeIn>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-[#D4AF37]/40 text-[#F4CC55] text-xs font-bold tracking-widest uppercase mb-4">
-            <span>Direct Communication</span>
-          </div>
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
+        <span>Direct phone:</span>
+        <a
+          href={`tel:${COMPANY.phone}`}
+          className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-brand transition-colors"
+        >
+          <Phone className="size-3.5 text-brand" />
+          <span>{COMPANY.phoneDisplay}</span>
+        </a>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight uppercase font-sans">
-            Need Reliable Security Or <span className="text-[#F4CC55] block sm:inline">Manpower Services?</span>
-          </h2>
+        <span className="text-border">|</span>
 
-          <div className="w-20 h-1 bg-[#D4AF37] mx-auto my-5 rounded-full" />
-
-          <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-            Tell us what you need. Contact S.S. Agency to discuss your requirements with our
-            supervisory team in Sambalpur.
-          </p>
-
-          {/* 3 Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`tel:${COMPANY.phone}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              <Phone className="w-4 h-4 text-[#F4CC55]" />
-              <span>Call {COMPANY.phoneDisplay}</span>
-            </a>
-
-            <a
-              href={buildWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>WhatsApp Us</span>
-            </a>
-
-            <Link
-              href="/request-quote"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 via-[#B45309] to-amber-700 shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Request a Quote</span>
-            </Link>
-          </div>
-        </FadeIn>
+        <span>Quick enquiry:</span>
+        <a
+          href={buildWhatsAppLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-brand transition-colors"
+        >
+          <MessageCircle className="size-3.5 text-emerald-600 dark:text-emerald-400" />
+          <span>WhatsApp dispatch</span>
+        </a>
       </div>
     </section>
   );

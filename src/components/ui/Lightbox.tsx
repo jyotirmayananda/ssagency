@@ -107,7 +107,7 @@ export function Lightbox({
               {currentItem.caption}
             </p>
           )}
-          <span className="text-[11px] text-[#D4AF37] tracking-wider uppercase font-semibold mt-2 inline-block">
+          <span className="font-mono text-xs text-muted-foreground tracking-wider mt-2 inline-block">
             {currentIndex + 1} / {items.length}
           </span>
         </div>

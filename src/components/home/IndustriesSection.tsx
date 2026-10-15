@@ -11,59 +11,54 @@ import {
   Warehouse,
   Users,
 } from 'lucide-react';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations/MotionWrapper';
+import { Highlight } from '@/components/chaiui/highlight';
 import { INDUSTRIES_SERVED } from '@/data/company';
 
 const indIconMap: Record<string, React.ReactNode> = {
-  Building2: <Building2 className="w-6 h-6 text-[#B45309]" />,
-  Home: <Home className="w-6 h-6 text-[#B45309]" />,
-  Store: <Store className="w-6 h-6 text-[#B45309]" />,
-  GraduationCap: <GraduationCap className="w-6 h-6 text-[#B45309]" />,
-  UtensilsCrossed: <UtensilsCrossed className="w-6 h-6 text-[#B45309]" />,
-  CalendarCheck: <CalendarCheck className="w-6 h-6 text-[#B45309]" />,
-  Warehouse: <Warehouse className="w-6 h-6 text-[#B45309]" />,
-  Users: <Users className="w-6 h-6 text-[#B45309]" />,
+  Building2: <Building2 className="size-5 text-brand" />,
+  Home: <Home className="size-5 text-brand" />,
+  Store: <Store className="size-5 text-brand" />,
+  GraduationCap: <GraduationCap className="size-5 text-brand" />,
+  UtensilsCrossed: <UtensilsCrossed className="size-5 text-brand" />,
+  CalendarCheck: <CalendarCheck className="size-5 text-brand" />,
+  Warehouse: <Warehouse className="size-5 text-brand" />,
+  Users: <Users className="size-5 text-brand" />,
 };
 
 export function IndustriesSection() {
   return (
-    <section className="py-24 sm:py-28 bg-white border-t border-b border-slate-200/80 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[#92400E] text-xs font-bold tracking-widest uppercase mb-3">
-            <span>Client Deployment Scope</span>
-          </div>
+    <section className="max-w-6xl mx-auto px-6 py-12 sm:px-12 sm:py-16">
+      {/* Section Head */}
+      <div className="space-y-2 mb-10 text-center sm:text-left">
+        <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
+          Sectors we serve
+        </h2>
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+          Accommodating security, housekeeping, and driving requirements across Sambalpur with{' '}
+          <Highlight>adaptable deployments</Highlight>.
+        </p>
+      </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#061A32] tracking-tight uppercase font-sans">
-            Supporting Different <span className="text-[#B45309]">Service Needs</span>
-          </h2>
-
-          <div className="w-20 h-1 bg-[#B45309] mx-auto my-4 rounded-full" />
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            We accommodate diverse security, housekeeping, culinary, and driving requirements
-            across various commercial and residential settings in Sambalpur.
-          </p>
-        </FadeIn>
-
-        {/* 8 Industry Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {INDUSTRIES_SERVED.map((ind) => (
-            <StaggerItem key={ind.title}>
-              <div className="h-full p-6 rounded-2xl bg-slate-50 border border-slate-200/90 hover:bg-white hover:border-[#B45309] shadow-sm hover:shadow-xl group hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center mb-4 group-hover:bg-[#061A32] group-hover:text-amber-400 transition-all">
-                  {indIconMap[ind.icon]}
-                </div>
-                <h3 className="text-base font-bold text-[#061A32] group-hover:text-[#B45309] transition-colors mb-2">
-                  {ind.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {ind.description}
-                </p>
+      {/* 8 Industry Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {INDUSTRIES_SERVED.map((ind) => (
+          <article
+            key={ind.title}
+            className="card-chai p-5 flex flex-col justify-between transition-opacity sm:opacity-90 sm:hover:opacity-100"
+          >
+            <div>
+              <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card mb-4">
+                {indIconMap[ind.icon]}
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+              <h3 className="font-montserrat text-sm font-semibold text-foreground mb-1.5">
+                {ind.title}
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {ind.description}
+              </p>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

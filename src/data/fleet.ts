@@ -44,7 +44,7 @@ export const FLEET_VEHICLES: FleetVehicle[] = [
   },
   {
     id: 'patrol-bolero-6102',
-    title: 'Field Unit — OD 23 R 6102',
+    title: 'Field Unit: OD 23 R 6102',
     plateNumber: 'OD 23 R 6102',
     model: 'Mahindra Bolero',
     category: 'patrol',
@@ -65,7 +65,7 @@ export const FLEET_VEHICLES: FleetVehicle[] = [
   },
   {
     id: 'patrol-bolero-5308',
-    title: 'Field Unit — OD 15 X 5308',
+    title: 'Field Unit: OD 15 X 5308',
     plateNumber: 'OD 15 X 5308',
     model: 'Mahindra Bolero',
     category: 'patrol',

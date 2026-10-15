@@ -6,16 +6,17 @@ import { PageHero } from '@/components/layout/PageHero';
 import { ContactCTASection } from '@/components/home/ContactCTASection';
 import { Lightbox } from '@/components/ui/Lightbox';
 import { FLEET_VEHICLES } from '@/data/fleet';
-import { Eye, CheckCircle2 } from 'lucide-react';
+import { Eye, Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const categories = [
-  { label: 'All Vehicles', value: 'all' },
-  { label: 'Formation Lineup', value: 'formation' },
-  { label: 'Field Units', value: 'field-unit' },
-  { label: 'Patrol Units', value: 'patrol' },
+  { label: 'All vehicles', value: 'all' },
+  { label: 'Formation lineup', value: 'formation' },
+  { label: 'Field units', value: 'field-unit' },
+  { label: 'Patrol units', value: 'patrol' },
 ];
 
-export default function FleetPage() {
+export function FleetPageContent() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -33,113 +34,113 @@ export default function FleetPage() {
   return (
     <>
       <PageHero
-        title="Our Vehicle Gallery"
-        eyebrow="Fleet & Operations"
-        subtitle="Explore the Mahindra Bolero patrol and operational vehicles supporting S.S. Agency’s security deployments across Sambalpur, Odisha."
-        breadcrumbs={[{ label: 'Vehicle Fleet' }]}
-        backgroundImage="/images/fleet/fleet-formation-patrol.jpg"
+        title="Our vehicle fleet"
+        eyebrow="Fleet and operations"
+        subtitle="Mahindra Bolero patrol and supervisory vehicles supporting active security deployments across Sambalpur, Odisha."
+        highlightPhrase="active security deployments"
+        breadcrumbs={[{ label: 'Vehicle fleet' }]}
       />
 
-      <section className="py-20 sm:py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-14">
+      <section className="max-w-6xl mx-auto px-6 py-10 sm:px-12 sm:py-14">
+        {/* ChaiUI Listing Toolbar */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <p className="text-sm text-muted-foreground">
+              Showing <span className="font-semibold text-foreground">{filteredVehicles.length}</span> vehicles
+            </p>
+            <span className="hidden h-4 w-px bg-border sm:block" />
+            <span className="text-xs sm:text-sm text-muted-foreground">Sambalpur mobile patrol</span>
+          </div>
+
+          {/* ChaiUI Segmented filter */}
+          <div className="flex flex-wrap overflow-hidden rounded-md border border-border bg-card p-1 gap-1">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 type="button"
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all ${
+                className={cn(
+                  'px-3 py-1.5 rounded text-xs font-medium transition-colors',
                   selectedCategory === cat.value
-                    ? 'bg-[#061A32] text-white shadow-md'
-                    : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 shadow-sm'
-                }`}
+                    ? 'bg-amber-100 text-amber-900 dark:bg-orange-900/40 dark:text-orange-100 font-semibold'
+                    : 'text-muted-foreground hover:text-foreground'
+                )}
               >
                 {cat.label}
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Vehicle Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredVehicles.map((vehicle, idx) => (
-              <div
-                key={vehicle.id}
-                className="rounded-2xl bg-white border border-slate-200/90 hover:border-[#B45309] shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  {/* Image Container with Lightbox click */}
-                  <div
-                    onClick={() => openLightbox(idx)}
-                    className="relative h-64 sm:h-72 w-full overflow-hidden cursor-pointer bg-slate-900"
-                  >
-                    <Image
-                      src={vehicle.image}
-                      alt={vehicle.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
-
-                    <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Eye className="w-4 h-4" />
-                    </div>
-
-                    {vehicle.plateNumber && (
-                      <span className="absolute bottom-3 left-4 px-2.5 py-1 rounded bg-black/80 border border-amber-400/50 text-amber-300 text-[11px] font-mono font-bold">
-                        {vehicle.plateNumber}
-                      </span>
-                    )}
+        {/* Vehicle Grid with ChaiUI card-chai */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredVehicles.map((vehicle, idx) => (
+            <article
+              key={vehicle.id}
+              className="card-chai group flex flex-col justify-between overflow-hidden transition-all duration-300 sm:opacity-90 sm:hover:opacity-100"
+            >
+              <div>
+                <div
+                  onClick={() => openLightbox(idx)}
+                  className="relative aspect-video w-full overflow-hidden cursor-pointer bg-muted"
+                >
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute top-2.5 right-2.5 size-7 rounded-md bg-black/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Eye className="size-3.5" />
                   </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 space-y-3">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B45309]">
-                      {vehicle.model}
+                  {vehicle.plateNumber && (
+                    <span className="absolute bottom-2.5 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-black/80 text-orange-200 border border-white/10 uppercase">
+                      {vehicle.plateNumber}
                     </span>
-                    <h3 className="text-xl font-bold text-[#061A32] group-hover:text-[#B45309] transition-colors">
-                      {vehicle.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {vehicle.description}
-                    </p>
-
-                    {/* Features checklist */}
-                    <div className="pt-3 border-t border-slate-100 space-y-1.5">
-                      {vehicle.details.features.map((feat) => (
-                        <div key={feat} className="flex items-start gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#B45309] shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  )}
                 </div>
 
-                <div className="p-6 pt-0">
-                  <button
-                    type="button"
-                    onClick={() => openLightbox(idx)}
-                    className="w-full py-2.5 rounded-lg bg-slate-100 text-[#061A32] hover:bg-[#061A32] hover:text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-                  >
-                    <Eye className="w-3.5 h-3.5 text-[#B45309]" />
-                    <span>View High-Res Photo</span>
-                  </button>
+                <div className="p-4 space-y-2">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider block">
+                    {vehicle.model}
+                  </span>
+                  <h3 className="font-montserrat text-base font-semibold text-foreground">
+                    {vehicle.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    {vehicle.description}
+                  </p>
+
+                  <div className="pt-2 border-t border-card-edge space-y-1">
+                    {vehicle.details.features.slice(0, 2).map((feat) => (
+                      <div key={feat} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Check className="size-3 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span className="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Operational Integrity Disclaimer */}
-          <div className="mt-16 p-6 rounded-xl bg-amber-50/70 border border-amber-200 text-center max-w-3xl mx-auto">
-            <p className="text-xs text-slate-700 leading-relaxed">
-              <strong className="text-[#061A32]">Notice on Fleet Photography:</strong> All images
-              showcased above feature genuine operational vehicles deployed by S.S. Agency in
-              Sambalpur, Odisha. We do not use generic stock vehicle renders.
-            </p>
-          </div>
+              <div className="p-4 pt-0">
+                <button
+                  type="button"
+                  onClick={() => openLightbox(idx)}
+                  className="w-full inline-flex h-8 items-center justify-center rounded-md bg-primary px-3 text-xs font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
+                  <span>View photograph</span>
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Operational Notice */}
+        <div className="mt-12 p-4 rounded-xl border border-card-edge bg-card-fill text-center max-w-2xl mx-auto">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            All images feature genuine operational vehicles deployed by S.S. Agency in Sambalpur, Odisha.
+          </p>
         </div>
       </section>
 
@@ -167,4 +168,8 @@ export default function FleetPage() {
       <ContactCTASection />
     </>
   );
+}
+
+export default function FleetPage() {
+  return <FleetPageContent />;
 }

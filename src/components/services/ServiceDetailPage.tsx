@@ -11,20 +11,19 @@ import {
   ChefHat,
   Sparkles,
   CarFront,
-  ArrowRight,
-  CheckCircle2,
+  ArrowUpRight,
+  Check,
   ChevronDown,
   HelpCircle,
-  FileText,
   Phone,
 } from 'lucide-react';
 import { COMPANY } from '@/lib/constants';
 
 const iconMap: Record<string, React.ReactNode> = {
-  ShieldCheck: <ShieldCheck className="w-8 h-8 text-[#B45309]" />,
-  ChefHat: <ChefHat className="w-8 h-8 text-[#B45309]" />,
-  Sparkles: <Sparkles className="w-8 h-8 text-[#B45309]" />,
-  CarFront: <CarFront className="w-8 h-8 text-[#B45309]" />,
+  ShieldCheck: <ShieldCheck className="size-5 text-brand" />,
+  ChefHat: <ChefHat className="size-5 text-brand" />,
+  Sparkles: <Sparkles className="size-5 text-brand" />,
+  CarFront: <CarFront className="size-5 text-brand" />,
 };
 
 export function ServiceDetailPage({ service }: { service: ServiceDetail }) {
@@ -42,236 +41,202 @@ export function ServiceDetailPage({ service }: { service: ServiceDetail }) {
           { label: 'Services', href: '/services' },
           { label: service.shortTitle },
         ]}
-        backgroundImage={service.heroImage}
       />
 
-      {/* Main Content & Scope */}
-      <section className="py-20 sm:py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left 8 cols: Scope, Use Cases, Benefits, FAQs */}
-            <div className="lg:col-span-8 space-y-16">
-              {/* Overview */}
-              <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center">
-                    {iconMap[service.iconName]}
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase">
-                    Service Overview
-                  </h2>
+      <section className="max-w-6xl mx-auto px-6 py-12 sm:px-12 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Scope, Use Cases, Benefits, FAQs */}
+          <div className="lg:col-span-8 space-y-10">
+            {/* Overview */}
+            <article className="card-chai p-6 sm:p-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card">
+                  {iconMap[service.iconName]}
                 </div>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {service.overview}
-                </p>
+                <h2 className="font-montserrat text-lg sm:text-xl font-semibold text-foreground">
+                  Service overview
+                </h2>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {service.overview}
+              </p>
+            </article>
+
+            {/* Scope of Service Breakdown */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                  Operational coverage
+                </span>
+                <h3 className="text-xl font-medium text-foreground tracking-tight">
+                  Scope of service
+                </h3>
               </div>
 
-              {/* Scope of Service Breakdown */}
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#B45309]">
-                    Operational Coverage
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#061A32] uppercase tracking-tight mt-1">
-                    Scope of Service
-                  </h3>
-                  <div className="w-16 h-1 bg-[#B45309] rounded-full my-3" />
-                </div>
-
-                <div className="space-y-6">
-                  {service.scopeOfService.map((item, idx) => (
-                    <div
-                      key={item.title}
-                      className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-[#B45309]/60 shadow-sm transition-colors"
-                    >
-                      <span className="text-xs font-mono font-bold text-[#B45309]">
-                        Phase 0{idx + 1}
-                      </span>
-                      <h4 className="text-lg font-bold text-[#061A32] mt-1 mb-2">{item.title}</h4>
-                      <p className="text-xs sm:text-sm text-slate-500 mb-4">{item.description}</p>
-                      <div className="space-y-2">
-                        {item.bullets.map((bullet) => (
-                          <div key={bullet} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                            <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0 mt-0.5" />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Potential Use Cases */}
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#B45309]">
-                    Application Scenarios
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#061A32] uppercase tracking-tight mt-1">
-                    Potential Use Cases
-                  </h3>
-                  <div className="w-16 h-1 bg-[#B45309] rounded-full my-3" />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {service.potentialUseCases.map((useCase) => (
-                    <div
-                      key={useCase.title}
-                      className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-[#B45309]/50 transition-colors"
-                    >
-                      <h4 className="text-base font-bold text-[#061A32] mb-2">{useCase.title}</h4>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        {useCase.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Key Benefits */}
-              <div className="space-y-6">
-                <div>
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#B45309]">
-                    Client Advantages
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#061A32] uppercase tracking-tight mt-1">
-                    Service Benefits
-                  </h3>
-                  <div className="w-16 h-1 bg-[#B45309] rounded-full my-3" />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {service.benefits.map((benefit) => (
-                    <div
-                      key={benefit.title}
-                      className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm"
-                    >
-                      <h4 className="text-base font-bold text-[#B45309] mb-2">{benefit.title}</h4>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* How to Enquire Steps */}
-              <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-6">
-                <div>
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#B45309]">
-                    Simple Steps
-                  </span>
-                  <h3 className="text-xl font-bold text-[#061A32] mt-1">How to Enquire</h3>
-                </div>
-                <div className="space-y-3">
-                  {service.enquiryProcess.map((step, idx) => (
-                    <div key={step} className="flex items-start gap-3 text-sm text-slate-700">
-                      <span className="w-6 h-6 rounded-full bg-amber-100 text-[#92400E] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                        {idx + 1}
-                      </span>
-                      <span>{step}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* FAQs Accordion */}
               <div className="space-y-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <HelpCircle className="w-5 h-5 text-[#B45309]" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase">
-                    Frequently Asked Questions
-                  </h3>
-                </div>
-
-                <div className="space-y-3">
-                  {service.faqs.map((faq, idx) => {
-                    const isOpen = openFaq === idx;
-                    return (
-                      <div
-                        key={faq.question}
-                        className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-                      >
-                        <button
-                          type="button"
-                          onClick={() => setOpenFaq(isOpen ? null : idx)}
-                          className="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-[#061A32] hover:text-[#B45309] transition-colors"
-                          aria-expanded={isOpen}
-                        >
-                          <span>{faq.question}</span>
-                          <ChevronDown
-                            className={`w-5 h-5 text-[#B45309] shrink-0 transition-transform duration-200 ${
-                              isOpen ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-
-                        {isOpen && (
-                          <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                            {faq.answer}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                {service.scopeOfService.map((item, idx) => (
+                  <div key={item.title} className="card-chai p-5 sm:p-6 space-y-2">
+                    <span className="font-mono text-xs text-muted-foreground">
+                      Phase 0{idx + 1}
+                    </span>
+                    <h4 className="font-montserrat text-base font-semibold text-foreground">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground mb-3">{item.description}</p>
+                    <div className="space-y-1.5 pt-1">
+                      {item.bullets.map((bullet) => (
+                        <div key={bullet} className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Check className="size-3 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                          <span>{bullet}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right 4 cols: Sticky Sidebar with Quote CTA & Direct Call */}
-            <div className="lg:col-span-4 space-y-6 sticky top-28">
-              {/* Quote CTA Box */}
-              <div className="p-7 rounded-2xl bg-white border-2 border-[#B45309]/50 shadow-xl space-y-5">
-                <span className="inline-block px-3 py-1 rounded bg-amber-100 text-[#92400E] text-xs font-bold uppercase tracking-wider">
-                  Direct Enquiry
+            {/* Potential Use Cases */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                  Application scenarios
                 </span>
-                <h3 className="text-xl font-bold text-[#061A32]">
-                  Book {service.shortTitle} in Sambalpur
+                <h3 className="text-xl font-medium text-foreground tracking-tight">
+                  Potential use cases
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Submit a customized quote request to review staff numbers, shift hours, and
-                  service arrangements.
-                </p>
-
-                <div className="space-y-3 pt-2">
-                  <Link
-                    href={`/request-quote?service=${encodeURIComponent(service.title)}`}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 via-[#B45309] to-amber-700 shadow-md hover:scale-[1.01] transition-transform"
-                  >
-                    <FileText className="w-4 h-4" />
-                    <span>Request Custom Quote</span>
-                  </Link>
-
-                  <a
-                    href={`tel:${COMPANY.phone}`}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors"
-                  >
-                    <Phone className="w-4 h-4 text-[#B45309]" />
-                    <span>Call {COMPANY.phoneDisplay}</span>
-                  </a>
-                </div>
               </div>
 
-              {/* Related Services */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-[#B45309]">
-                  Other Services
-                </h4>
-                <div className="space-y-2">
-                  {relatedServices.map((rel) => (
-                    <Link
-                      key={rel.id}
-                      href={`/services/${rel.slug}`}
-                      className="block p-3 rounded-lg bg-slate-50 hover:bg-amber-50/50 border border-slate-200/80 hover:border-[#B45309]/40 transition-colors group"
-                    >
-                      <div className="text-xs font-bold text-[#061A32] group-hover:text-[#B45309] flex items-center justify-between">
-                        <span>{rel.title}</span>
-                        <ArrowRight className="w-3 h-3 text-[#B45309]" />
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {service.potentialUseCases.map((useCase) => (
+                  <div key={useCase.title} className="card-chai p-5">
+                    <h4 className="font-montserrat text-sm font-semibold text-foreground mb-1.5">
+                      {useCase.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {useCase.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Benefits */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                  Client advantages
+                </span>
+                <h3 className="text-xl font-medium text-foreground tracking-tight">
+                  Service benefits
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {service.benefits.map((benefit) => (
+                  <div key={benefit.title} className="card-chai p-5">
+                    <h4 className="font-montserrat text-sm font-semibold text-foreground mb-1.5">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* FAQs Accordion */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 mb-2">
+                <HelpCircle className="size-4 text-brand" />
+                <h3 className="text-xl font-medium text-foreground tracking-tight">
+                  Frequently asked questions
+                </h3>
+              </div>
+
+              <div className="space-y-2.5">
+                {service.faqs.map((faq, idx) => {
+                  const isOpen = openFaq === idx;
+                  return (
+                    <div key={faq.question} className="card-chai overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => setOpenFaq(isOpen ? null : idx)}
+                        className="w-full p-4 sm:p-5 text-left flex items-center justify-between text-xs sm:text-sm font-semibold text-foreground hover:text-brand transition-colors"
+                        aria-expanded={isOpen}
+                      >
+                        <span>{faq.question}</span>
+                        <ChevronDown
+                          className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
+                            isOpen ? 'rotate-180 text-brand' : ''
+                          }`}
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="px-4 sm:px-5 pb-5 pt-1 text-xs text-muted-foreground leading-relaxed border-t border-card-edge">
+                          {faq.answer}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Sticky Sidebar */}
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+            {/* Quote CTA Box */}
+            <div className="card-chai p-6 space-y-4">
+              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block">
+                Direct enquiry
+              </span>
+              <h3 className="font-montserrat text-base font-semibold text-foreground">
+                Deploy {service.shortTitle} in Sambalpur
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Submit a customized quote request to review staff numbers, shift hours, and service arrangements.
+              </p>
+
+              <div className="space-y-2.5 pt-2">
+                <Link
+                  href={`/request-quote?service=${encodeURIComponent(service.title)}`}
+                  className="btn-asym inline-flex h-9 w-full items-center justify-center gap-2 bg-neutral-900 text-xs font-medium text-white transition-colors duration-200 hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+                >
+                  <span>Request a quote</span>
+                  <ArrowUpRight className="-ml-1 size-3.5" />
+                </Link>
+
+                <a
+                  href={`tel:${COMPANY.phone}`}
+                  className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-md border border-border text-xs font-medium text-foreground hover:bg-muted transition-colors"
+                >
+                  <Phone className="size-3 text-brand" />
+                  <span>Call {COMPANY.phoneDisplay}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Related Services */}
+            <div className="card-chai p-5 space-y-3">
+              <h4 className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                Other services
+              </h4>
+              <div className="space-y-1">
+                {relatedServices.map((rel) => (
+                  <Link
+                    key={rel.id}
+                    href={`/services/${rel.slug}`}
+                    className="block p-2.5 rounded-md hover:bg-muted transition-colors group"
+                  >
+                    <div className="text-xs font-medium text-foreground group-hover:text-brand flex items-center justify-between">
+                      <span>{rel.title}</span>
+                      <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-brand" />
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

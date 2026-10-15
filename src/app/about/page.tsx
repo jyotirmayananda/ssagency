@@ -3,13 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PageHero } from '@/components/layout/PageHero';
 import { ContactCTASection } from '@/components/home/ContactCTASection';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations/MotionWrapper';
 import { COMPANY_MISSION, COMPANY_VISION, CORE_VALUES } from '@/data/company';
 import { SERVICES } from '@/data/services';
-import { ShieldCheck, Target, Eye, ArrowRight, MapPin } from 'lucide-react';
+import { Target, Eye, ArrowUpRight, Check } from 'lucide-react';
+import { Highlight } from '@/components/chaiui/highlight';
 
 export const metadata: Metadata = {
-  title: 'About Us — S.S. Agency Security Services',
+  title: 'About us: S.S. Agency Security Services',
   description:
     'Learn about S.S. Agency, a professional security guard and manpower solutions provider based in Saraswati Vihar, Ainthapali, Sambalpur, Odisha.',
 };
@@ -19,201 +19,183 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About S.S. Agency"
-        eyebrow="Company Overview"
+        eyebrow="Company overview"
         subtitle="Dedicated security personnel and practical manpower solutions tailored to safe environments in Sambalpur and Western Odisha."
-        breadcrumbs={[{ label: 'About Us' }]}
-        backgroundImage="/images/about/company-team-lineup.jpg"
+        highlightPhrase="practical manpower solutions"
+        breadcrumbs={[{ label: 'About us' }]}
       />
 
       {/* Agency Introduction & Photography */}
-      <section className="py-20 sm:py-24 bg-[#F8FAFC] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Text description */}
-            <div className="lg:col-span-7 space-y-6">
-              <FadeIn>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[#92400E] text-xs font-bold tracking-widest uppercase">
-                  <MapPin className="w-3.5 h-3.5 text-[#B45309]" />
-                  <span>Headquartered in Sambalpur, Odisha</span>
-                </div>
+      <section className="max-w-6xl mx-auto px-6 py-12 sm:px-12 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Text description */}
+          <div className="lg:col-span-7 space-y-4">
+            <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
+              Delivering dependable manpower solutions
+            </h2>
 
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061A32] tracking-tight uppercase font-sans mt-3">
-                  Delivering Dependable <span className="text-[#B45309]">Manpower Solutions</span>
-                </h2>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              S.S. Agency is a service agency headquartered in Saraswati Vihar, Ainthapali, Sambalpur. We specialize in providing verified service personnel across four primary operational domains, ensuring{' '}
+              <Highlight>responsible supervisory oversight</Highlight>.
+            </p>
 
-                <div className="w-16 h-1 bg-[#B45309] rounded-full my-4" />
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Our operational strategy emphasizes close communication with facility managers, residential welfare bodies, commercial businesses, and individuals. By understanding exact site parameters before deployment, we ensure duty requirements are fulfilled smoothly without disruption.
+            </p>
 
-                <p className="text-slate-600 text-base leading-relaxed">
-                  S.S. Agency is a service agency headquartered in Saraswati Vihar, Ainthapali,
-                  Sambalpur. We specialize in providing verified service personnel across four
-                  primary operational domains: Security Guard Services, Cook Services, Cleaning
-                  Staff Services, and Four-Wheeler Driver Services.
-                </p>
+            <div className="p-4 rounded-xl border border-card-edge bg-card-fill text-xs sm:text-sm text-foreground">
+              We focus on understanding client requirements and providing professional, practical service support with responsible supervisory oversight.
+            </div>
+          </div>
 
-                <p className="text-slate-600 text-base leading-relaxed">
-                  Our operational strategy emphasizes close communication with facility managers,
-                  residential welfare bodies, commercial businesses, and individuals. By
-                  understanding exact site parameters and post orders before deployment, we ensure
-                  that duty requirements are fulfilled smoothly without unnecessary disruption.
-                </p>
-
-                <div className="p-4 rounded-xl bg-amber-50/70 border-l-4 border-[#B45309] text-sm text-slate-700 italic">
-                  &ldquo;We focus on understanding client requirements and providing professional,
-                  practical service support with responsible supervisory oversight.&rdquo;
-                </div>
-              </FadeIn>
+          {/* Photo Showcase */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="card-chai group overflow-hidden">
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <Image
+                  src="/images/about/supervisor-vehicle-patrol.jpg"
+                  alt="S.S. Agency coordinator with Mahindra Bolero patrol vehicle"
+                  fill
+                  className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="p-3 border-t border-card-edge flex items-center justify-between text-xs text-muted-foreground">
+                <span className="font-medium text-foreground">Supervisory inspection vehicle</span>
+                <span className="font-mono text-[10px]">OD 23 R 6102</span>
+              </div>
             </div>
 
-            {/* Photo Collage */}
-            <div className="lg:col-span-5 relative">
-              <FadeIn direction="left">
-                <div className="space-y-4">
-                  <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900">
-                    <Image
-                      src="/images/about/supervisor-vehicle-patrol.jpg"
-                      alt="S.S. Agency Coordinator with Mahindra Bolero patrol vehicle"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-4 text-xs font-bold text-amber-300 tracking-wide">
-                      Supervisory Inspection Vehicle OD 23 R 6102
-                    </span>
-                  </div>
-
-                  <div className="relative h-56 rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-900">
-                    <Image
-                      src="/images/about/officer-inspection-vehicle.jpg"
-                      alt="S.S. Agency Field Officer with patrol vehicle"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-4 text-xs font-bold text-slate-200 tracking-wide">
-                      Field Coordination Unit OD 15 X 5308
-                    </span>
-                  </div>
-                </div>
-              </FadeIn>
+            <div className="card-chai group overflow-hidden">
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <Image
+                  src="/images/about/officer-inspection-vehicle.jpg"
+                  alt="S.S. Agency field officer with patrol vehicle"
+                  fill
+                  className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="p-3 border-t border-card-edge flex items-center justify-between text-xs text-muted-foreground">
+                <span className="font-medium text-foreground">Field coordination unit</span>
+                <span className="font-mono text-[10px]">OD 15 X 5308</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-white border-t border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Mission */}
-            <FadeIn direction="up" delay={0.1}>
-              <div className="h-full p-8 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-[#B45309] shadow-sm hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-[#B45309] mb-6">
-                  <Target className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-bold tracking-widest text-[#B45309] uppercase">
-                  Our Mission
-                </span>
-                <h3 className="text-2xl font-black text-[#061A32] mt-1 mb-4 uppercase">
-                  Supporting Safer Environments
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  &ldquo;{COMPANY_MISSION}&rdquo;
-                </p>
+      <section className="max-w-6xl mx-auto px-6 py-10 sm:px-12 sm:py-14 border-t border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Mission */}
+          <article className="card-chai p-6 flex flex-col justify-between">
+            <div>
+              <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card mb-4 text-brand">
+                <Target className="size-5" />
               </div>
-            </FadeIn>
+              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-1">
+                Our mission
+              </span>
+              <h3 className="font-montserrat text-lg font-semibold text-foreground mb-3">
+                Supporting safer environments
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {COMPANY_MISSION}
+              </p>
+            </div>
+          </article>
 
-            {/* Vision */}
-            <FadeIn direction="up" delay={0.2}>
-              <div className="h-full p-8 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-[#B45309] shadow-sm hover:shadow-xl transition-all">
-                <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-[#B45309] mb-6">
-                  <Eye className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-bold tracking-widest text-[#B45309] uppercase">
-                  Our Vision
-                </span>
-                <h3 className="text-2xl font-black text-[#061A32] mt-1 mb-4 uppercase">
-                  Trusted Partner for Tomorrow
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  &ldquo;{COMPANY_VISION}&rdquo;
-                </p>
+          {/* Vision */}
+          <article className="card-chai p-6 flex flex-col justify-between">
+            <div>
+              <div className="size-10 rounded-lg border border-card-edge flex items-center justify-center bg-card mb-4 text-brand">
+                <Eye className="size-5" />
               </div>
-            </FadeIn>
-          </div>
+              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-1">
+                Our vision
+              </span>
+              <h3 className="font-montserrat text-lg font-semibold text-foreground mb-3">
+                Trusted partner for tomorrow
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                {COMPANY_VISION}
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 sm:py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-black text-[#061A32] uppercase tracking-tight">
-              Our Guiding <span className="text-[#B45309]">Values</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#B45309] mx-auto my-4 rounded-full" />
-            <p className="text-slate-600 text-sm sm:text-base">
-              Principles that govern our personnel selection, supervisory protocols, and client
-              relationships.
-            </p>
-          </FadeIn>
+      <section className="max-w-6xl mx-auto px-6 py-10 sm:px-12 sm:py-14 border-t border-border">
+        <div className="space-y-2 mb-8">
+          <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
+            Our guiding values
+          </h2>
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            Principles governing personnel selection, supervisory protocols, and client relationships with{' '}
+            <Highlight>accountable standards</Highlight>.
+          </p>
+        </div>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {CORE_VALUES.map((val) => (
-              <StaggerItem key={val.title}>
-                <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-[#B45309] flex items-center justify-center mb-5">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#061A32] mb-2">{val.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{val.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {CORE_VALUES.map((val) => (
+            <article key={val.title} className="card-chai p-5">
+              <div className="size-6 rounded-md border border-card-edge flex items-center justify-center shrink-0 mb-3 bg-card text-emerald-600 dark:text-emerald-400">
+                <Check className="size-3.5" />
+              </div>
+              <h3 className="font-montserrat text-base font-semibold text-foreground mb-1.5">
+                {val.title}
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {val.description}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Services Overview Quick Grid */}
-      <section className="py-20 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-[#B45309]">
-                Service Spectrum
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-[#061A32] uppercase tracking-tight mt-1">
-                What We Provide
-              </h2>
-            </div>
-            <Link
-              href="/services"
-              className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-[#B45309] hover:text-amber-800"
-            >
-              <span>Explore all services</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+      {/* Services Spectrum */}
+      <section className="max-w-6xl mx-auto px-6 py-10 sm:px-12 sm:py-14 border-t border-border">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div className="space-y-1">
+            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+              Service spectrum
+            </span>
+            <h2 className="text-2xl font-medium text-foreground tracking-tight">
+              What we provide
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SERVICES.map((srv) => (
-              <Link
-                key={srv.id}
-                href={`/services/${srv.slug}`}
-                className="p-6 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#B45309] hover:bg-white shadow-sm transition-all group"
-              >
-                <h3 className="text-base font-bold text-[#061A32] group-hover:text-[#B45309] transition-colors mb-2">
+          <Link
+            href="/services"
+            className="inline-flex h-9 items-center gap-2 rounded-md bg-[#d4d4d866] px-4 font-montserrat text-xs sm:text-sm text-[#52525b] hover:bg-[#d4d4d8] dark:bg-[#71717a33] dark:text-[#d4d4d8] dark:hover:bg-black/70 transition-colors w-fit"
+          >
+            <span>Explore all services</span>
+            <ArrowUpRight className="-ml-1 size-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {SERVICES.map((srv) => (
+            <Link
+              key={srv.id}
+              href={`/services/${srv.slug}`}
+              className="card-chai p-5 flex flex-col justify-between group transition-all sm:opacity-90 sm:hover:opacity-100"
+            >
+              <div>
+                <h3 className="font-montserrat text-sm font-semibold text-foreground group-hover:text-brand transition-colors mb-1.5">
                   {srv.title}
                 </h3>
-                <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed mb-4">
+                <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed mb-4">
                   {srv.overview}
                 </p>
-                <div className="flex items-center gap-1 text-[11px] font-bold text-[#B45309] uppercase tracking-wider">
-                  <span>View Details</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+
+              <span className="font-mono text-[11px] text-brand flex items-center gap-1">
+                <span>View details</span>
+                <ArrowUpRight className="size-3" />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

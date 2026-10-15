@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Eye, ArrowRight, Shield, Maximize2 } from 'lucide-react';
-import { FadeIn } from '@/components/animations/MotionWrapper';
+import { ArrowUpRight, Maximize2 } from 'lucide-react';
+import { Highlight } from '@/components/chaiui/highlight';
 import { Lightbox } from '@/components/ui/Lightbox';
 import { FLEET_VEHICLES } from '@/data/fleet';
 
@@ -21,120 +21,102 @@ export function VehicleShowcaseSection() {
   const supporting = FLEET_VEHICLES.slice(1, 4);
 
   return (
-    <section className="py-24 sm:py-28 bg-white border-t border-b border-slate-200/80 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-[#92400E] text-xs font-bold tracking-widest uppercase mb-3">
-            <Shield className="w-3.5 h-3.5" />
-            <span>Operational Assets</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#061A32] tracking-tight uppercase font-sans">
-            Our Vehicle <span className="text-[#B45309]">Showcase</span>
+    <section className="max-w-6xl mx-auto px-6 py-12 sm:px-12 sm:py-16">
+      {/* Section Head */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div className="space-y-2">
+          <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
+            Our vehicle fleet
           </h2>
-
-          <div className="w-20 h-1 bg-[#B45309] mx-auto my-4 rounded-full" />
-
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            A closer look at the vehicles featured in our agency’s operations in Sambalpur and
-            surrounding districts.
+          <p className="text-muted-foreground text-sm sm:text-base">
+            Mobile patrol and supervisory vehicles in active service, providing{' '}
+            <Highlight>rapid response coverage</Highlight>.
           </p>
-        </FadeIn>
+        </div>
 
-        {/* Asymmetrical Masonry Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-          {/* Large Featured Photograph */}
-          <div className="lg:col-span-7">
-            <div
-              onClick={() => openLightbox(0)}
-              className="group relative h-80 sm:h-96 lg:h-full min-h-[380px] rounded-2xl overflow-hidden cursor-pointer border border-slate-200 hover:border-[#B45309] shadow-md hover:shadow-2xl transition-all duration-300 bg-slate-900"
-            >
+        <Link
+          href="/fleet"
+          className="inline-flex h-9 items-center gap-2 rounded-md bg-[#d4d4d866] px-4 font-montserrat text-xs sm:text-sm text-[#52525b] hover:bg-[#d4d4d8] dark:bg-[#71717a33] dark:text-[#d4d4d8] dark:hover:bg-black/70 transition-colors w-fit"
+        >
+          <span>Explore complete fleet</span>
+          <ArrowUpRight className="-ml-1 size-3.5" />
+        </Link>
+      </div>
+
+      {/* ChaiUI Masonry Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Large Featured Card */}
+        <div className="lg:col-span-7">
+          <article
+            onClick={() => openLightbox(0)}
+            className="card-chai group relative flex flex-col justify-between overflow-hidden cursor-pointer h-full min-h-[380px] sm:opacity-90 sm:hover:opacity-100 transition-opacity"
+          >
+            <div className="relative aspect-[16/10] sm:aspect-auto sm:h-full w-full overflow-hidden">
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-90 group-hover:opacity-75 transition-opacity" />
-
-              {/* View Overlay Icon */}
-              <div className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-                <Maximize2 className="w-4 h-4" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+              
+              <div className="absolute top-3 right-3 size-8 rounded-md bg-black/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <Maximize2 className="size-4" />
               </div>
 
-              {/* Details Overlay at Bottom */}
-              <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 space-y-2">
-                <span className="inline-block px-2.5 py-0.5 rounded bg-[#D4AF37] text-[#031225] text-[10px] font-extrabold uppercase tracking-wider">
+              <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white space-y-1.5">
+                <span className="font-mono text-[10px] tracking-wider text-orange-200 uppercase">
                   Featured Formation
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                <h3 className="font-montserrat text-lg sm:text-xl font-semibold leading-snug">
                   {featured.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 max-w-xl">
+                <p className="text-xs text-white/80 line-clamp-2 max-w-lg">
                   {featured.description}
                 </p>
-                <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-amber-300">
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Click to expand high-resolution photograph</span>
-                </div>
               </div>
             </div>
-          </div>
+          </article>
+        </div>
 
-          {/* Supporting Photographs */}
-          <div className="lg:col-span-5 flex flex-col gap-5">
-            {supporting.map((item, idx) => (
-              <div
-                key={item.id}
-                onClick={() => openLightbox(idx + 1)}
-                className="group relative h-48 sm:h-52 rounded-2xl overflow-hidden cursor-pointer border border-slate-200 hover:border-[#B45309] shadow-md hover:shadow-xl transition-all duration-300 bg-slate-900"
-              >
+        {/* Supporting Fleet Cards */}
+        <div className="lg:col-span-5 flex flex-col gap-4">
+          {supporting.map((item, idx) => (
+            <article
+              key={item.id}
+              onClick={() => openLightbox(idx + 1)}
+              className="card-chai group relative flex items-center overflow-hidden cursor-pointer h-32 sm:opacity-90 sm:hover:opacity-100 transition-opacity"
+            >
+              <div className="relative w-36 h-full shrink-0 overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  sizes="180px"
+                  className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
                 />
+              </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
-
-                <div className="absolute top-3 right-3 p-2 rounded-full bg-black/60 border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Maximize2 className="w-3.5 h-3.5" />
-                </div>
-
-                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
-                  <div className="flex items-center gap-2">
-                    {item.plateNumber && (
-                      <span className="px-2 py-0.5 rounded bg-black/70 border border-amber-400/50 text-amber-300 text-[10px] font-mono font-bold tracking-wider">
-                        {item.plateNumber}
-                      </span>
-                    )}
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-200 transition-colors mt-1">
+              <div className="p-4 flex-1 flex flex-col justify-between min-w-0">
+                <div>
+                  {item.plateNumber && (
+                    <span className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+                      {item.plateNumber}
+                    </span>
+                  )}
+                  <h4 className="font-montserrat text-sm font-semibold text-foreground line-clamp-1 mt-0.5">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-200 line-clamp-1 mt-0.5">
-                    {item.details.role}
-                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* View Full Fleet CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/fleet"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white bg-[#061A32] hover:bg-[#0B2B50] shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
-          >
-            <span>Explore Complete Fleet Gallery</span>
-            <ArrowRight className="w-4 h-4 text-amber-400" />
-          </Link>
+                <p className="text-xs text-muted-foreground line-clamp-1">
+                  {item.details.role}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 

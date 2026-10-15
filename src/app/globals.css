@@ -1,93 +1,173 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:wght@400..800&family=Onest:wght@400..700&family=Geist+Mono:wght@400..600&display=swap');
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-brand: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+
+  /* ChaiUI extras */
+  --color-highlight: var(--highlight);
+  --color-card-edge: var(--card-edge);
+  --color-card-edge-hover: var(--card-edge-hover);
+  --color-card-fill: var(--card-fill);
+}
 
 :root {
-  --navy-deep: #061A32;
-  --navy-midnight: #031225;
-  --navy-royal: #0B2B50;
-  --gold-metallic: #B45309;
-  --gold-bright: #D97706;
-  --white-soft: #FFFFFF;
-  --grey-light: #F1F5F9;
-  --text-slate: #475569;
-  
-  --background: #F8FAFC;
-  --foreground: #0F172A;
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #a1a1aa;
+  --brand: #f97316;
+
+  --highlight: #92400e; /* yellow-800 */
+  --card-edge: rgba(120, 53, 15, 0.15); /* amber-900/15 */
+  --card-edge-hover: rgba(120, 53, 15, 0.25);
+  --card-fill: rgba(255, 255, 255, 0.8);
 }
 
-@theme {
-  --color-navy-deep: #061A32;
-  --color-navy-midnight: #031225;
-  --color-navy-royal: #0B2B50;
-  --color-gold-metallic: #B45309;
-  --color-gold-bright: #D97706;
-  --color-white-soft: #FFFFFF;
-  --color-grey-light: #F1F5F9;
-  --color-text-slate: #475569;
+.dark,
+:root[class~="dark"],
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-foreground: #fafafa;
+  --popover: #141414;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #0a0a0a;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #71717a;
+  --brand: #f97316;
+
+  --highlight: #ffedd5; /* orange-100 */
+  --card-edge: rgba(255, 247, 237, 0.15); /* orange-50/15 */
+  --card-edge-hover: rgba(255, 247, 237, 0.3);
+  --card-fill: rgba(0, 0, 0, 0.2);
 }
 
-html {
-  scroll-behavior: smooth;
-  color-scheme: light;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-amber-100 selection:text-amber-950 dark:selection:bg-orange-950 dark:selection:text-orange-200;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--foreground);
+  }
 }
 
-body {
-  background-color: #F8FAFC;
-  color: #0F172A;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  overflow-x: hidden;
+/* The highlight phrase: one per paragraph */
+@utility highlight {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  text-transform: capitalize;
+  color: var(--highlight);
 }
 
-::selection {
-  background-color: #FDE68A;
-  color: #78350F;
+/* The warm hairline card: no shadow, faint fill, subtle blur */
+@utility card-chai {
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--card-edge);
+  background: var(--card-fill);
+  backdrop-filter: blur(4px);
+  transition: border-color 300ms, opacity 300ms;
+  &:hover {
+    border-color: var(--card-edge-hover);
+  }
 }
 
-/* Custom Scrollbar for Light Mode */
-::-webkit-scrollbar {
-  width: 9px;
+/* Asymmetric corners: solid takes top-right + bottom-left, outline the mirror */
+@utility btn-asym {
+  border-radius: 0 var(--radius) 0 var(--radius);
+}
+@utility btn-asym-mirror {
+  border-radius: var(--radius) 0 var(--radius) 0;
 }
 
-::-webkit-scrollbar-track {
-  background: #F1F5F9;
+/* Background image, warm in light mode too */
+@utility chai-backdrop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2842px;
+  max-width: none;
+  transform: translateX(-50%);
+  z-index: -50;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  :root:not(.dark) & {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
-  border: 2px solid #F1F5F9;
+@keyframes chai-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: #D97706;
-}
-
-/* Metallic Gold text gradient for Light Mode (High Contrast & Legible) */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #92400E 0%, #B45309 35%, #D97706 70%, #78350F 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Gold border glow */
-.gold-glow {
-  box-shadow: 0 0 25px rgba(217, 119, 6, 0.2);
-}
-
-.gold-glow-subtle {
-  box-shadow: 0 4px 20px -2px rgba(217, 119, 6, 0.12);
-}
-
-/* Glassmorphism for Light Mode */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.glass-panel-light {
-  background: rgba(248, 250, 252, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(226, 232, 240, 0.6);
+@keyframes chai-bounce {
+  0%,
+  100% {
+    transform: translateY(-6%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }

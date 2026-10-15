@@ -16,22 +16,22 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4 py-24 bg-[#F8FAFC]">
-      <div className="max-w-md w-full text-center p-8 rounded-2xl bg-white border border-rose-200 shadow-xl space-y-6">
-        <div className="w-16 h-16 mx-auto rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-500">
-          <AlertTriangle className="w-8 h-8" />
+    <div className="min-h-[70vh] flex items-center justify-center px-6 py-24">
+      <div className="card-chai max-w-md w-full text-center p-8 space-y-6">
+        <div className="size-14 mx-auto rounded-xl border border-red-500/20 flex items-center justify-center bg-card text-red-500">
+          <AlertTriangle className="size-7" />
         </div>
 
         <div>
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-rose-600">
-            System Notice
+          <span className="font-mono text-xs text-red-500 uppercase tracking-wider block mb-1">
+            System notice
           </span>
-          <h1 className="text-2xl font-black text-[#061A32] uppercase tracking-tight mt-1">
-            Something Went Wrong
+          <h1 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight">
+            Something went wrong
           </h1>
-          <p className="text-slate-600 text-sm mt-3 leading-relaxed">
+          <p className="text-muted-foreground text-sm mt-3 leading-relaxed">
             An unexpected error occurred while loading this view. You may retry or return to our
-            home directory.
+            home page.
           </p>
         </div>
 
@@ -39,16 +39,16 @@ export default function ErrorPage({
           <button
             type="button"
             onClick={() => reset()}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-[#061A32] shadow-md hover:bg-[#0B2B50] transition-colors"
+            className="btn-asym inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 bg-neutral-900 px-5 text-sm font-medium text-white transition-colors duration-200 hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-neutral-200 cursor-pointer"
           >
-            <RotateCcw className="w-4 h-4 text-amber-400" />
-            <span>Try Again</span>
+            <RotateCcw className="size-4" />
+            <span>Try again</span>
           </button>
           <Link
             href="/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#061A32] bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors"
+            className="btn-asym-mirror inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 border border-border bg-transparent px-5 text-sm font-medium transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900 text-foreground"
           >
-            <Home className="w-4 h-4" />
+            <Home className="size-4" />
             <span>Home</span>
           </Link>
         </div>

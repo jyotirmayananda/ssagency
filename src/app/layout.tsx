@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -7,24 +6,14 @@ import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { Toaster } from 'sonner';
 import { COMPANY, SITE_DOMAIN } from '@/lib/constants';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-heading',
-});
+import { ThemeProvider, ThemeScript } from '@/components/chaiui/theme-provider';
+import { Backdrop } from '@/components/chaiui/backdrop';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_DOMAIN),
   title: {
-    default: `${COMPANY.name} — Security Services & Manpower Solutions Sambalpur`,
-    template: `%s | ${COMPANY.name} Security Services`,
+    default: `${COMPANY.name}: Security Services and Manpower Solutions Sambalpur`,
+    template: `%s | ${COMPANY.name}`,
   },
   description:
     'S.S. Agency provides trusted security guard services, cooking staff, cleaning and housekeeping manpower, and four-wheeler drivers in Sambalpur, Odisha.',
@@ -51,7 +40,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: `${COMPANY.name} — Security Services & Manpower Solutions`,
+    title: `${COMPANY.name}: Security Services and Manpower Solutions`,
     description:
       'Dependable security personnel, cooking staff, cleaning staff, and four-wheeler driver services in Sambalpur, Odisha.',
     url: SITE_DOMAIN,
@@ -69,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${COMPANY.name} — Security Services`,
+    title: `${COMPANY.name}: Security Services`,
     description:
       'Professional security guard services and manpower solutions in Sambalpur, Odisha.',
     images: ['/images/hero/hero-patrol-fleet.jpg'],
@@ -119,57 +108,27 @@ export default function RootLayout({
       '@type': 'State',
       name: 'Odisha',
     },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Manpower & Security Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Security Guard Services',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Cook Services',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Cleaning Staff Services',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Four-Wheeler Driver Services',
-          },
-        },
-      ],
-    },
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <ThemeScript defaultTheme="light" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#F8FAFC] text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
-        <Toaster richColors position="top-right" />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <BackToTop />
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground relative isolate overflow-x-clip">
+        <ThemeProvider defaultTheme="light">
+          <Backdrop />
+          <Toaster position="top-right" />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <BackToTop />
+        </ThemeProvider>
       </body>
     </html>
   );

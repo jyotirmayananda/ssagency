@@ -127,19 +127,15 @@ export function BrandLogo({
         <div className="flex flex-col text-left leading-tight">
           <div className="flex items-center gap-1.5">
             <span
-              className={`font-black tracking-wider text-xl sm:text-2xl font-sans ${
-                isLight ? 'text-[#061A32]' : 'text-white drop-shadow-sm'
-              }`}
+              className="font-bold tracking-wider text-xl sm:text-2xl font-sans text-foreground"
             >
-              S.S. <span className="text-[#B45309]">AGENCY</span>
+              S.S. <span className="text-brand">AGENCY</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2">
             <span
-              className={`text-[10px] sm:text-[11px] font-extrabold tracking-[0.22em] uppercase ${
-                isLight ? 'text-[#B45309]' : 'text-[#F4CC55]'
-              }`}
+              className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground"
             >
               SECURITY SERVICES
             </span>

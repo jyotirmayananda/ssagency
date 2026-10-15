@@ -4,7 +4,7 @@ export const SITE_DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://ssagency
 
 export const COMPANY: CompanyInfo = {
   name: 'S.S. AGENCY',
-  legalName: 'S.S. AGENCY — SECURITY SERVICES',
+  legalName: 'S.S. Agency: Security Services',
   category: 'Security Services and Manpower Solutions',
   tagline: 'Your Safety, Our Priority',
   secondaryTagline: 'Your Trusted Security Partner',
