@@ -51,7 +51,6 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Our Fleet', href: '/fleet' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ];
 

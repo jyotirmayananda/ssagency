@@ -93,16 +93,7 @@ export function Footer() {
                   className="hover:text-[#F4CC55] transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  Vehicle Fleet Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="hover:text-[#F4CC55] transition-colors flex items-center gap-1.5"
-                >
-                  <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  Photo Showcase
+                  Our Vehicle Fleet
                 </Link>
               </li>
               <li>

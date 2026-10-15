@@ -6,7 +6,6 @@ import { AboutSplitSection } from '@/components/home/AboutSplitSection';
 import { WhyChooseSection } from '@/components/home/WhyChooseSection';
 import { ProcessSection } from '@/components/home/ProcessSection';
 import { IndustriesSection } from '@/components/home/IndustriesSection';
-import { GalleryPreviewSection } from '@/components/home/GalleryPreviewSection';
 import { ContactCTASection } from '@/components/home/ContactCTASection';
 
 export default function HomePage() {
@@ -36,10 +35,7 @@ export default function HomePage() {
       {/* 08. Industries & Clients */}
       <IndustriesSection />
 
-      {/* 09. Gallery Preview */}
-      <GalleryPreviewSection />
-
-      {/* 10. Contact CTA */}
+      {/* 09. Contact CTA */}
       <ContactCTASection />
     </>
   );

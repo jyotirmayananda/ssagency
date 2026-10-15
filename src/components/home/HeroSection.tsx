@@ -185,60 +185,6 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-
-            {/* Quick Fleet Carousel / Alternate Thumbnail strip */}
-            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
-              <Link 
-                href="/fleet" 
-                className="group relative rounded-xl overflow-hidden aspect-[16/10] border border-slate-200 shadow-sm hover:shadow-md transition-all"
-              >
-                <Image
-                  src="/images/fleet/fleet-trio-patrol.jpg"
-                  alt="S.S. Agency Patrol Vehicles Trio"
-                  fill
-                  sizes="150px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-[#061A32]/20 group-hover:bg-transparent transition-colors" />
-                <span className="absolute bottom-1 left-1.5 text-[9px] font-bold text-white bg-slate-900/80 px-1 rounded">
-                  Patrol Trio
-                </span>
-              </Link>
-
-              <Link 
-                href="/fleet" 
-                className="group relative rounded-xl overflow-hidden aspect-[16/10] border border-slate-200 shadow-sm hover:shadow-md transition-all"
-              >
-                <Image
-                  src="/images/fleet/vehicle-patrol-6102.jpg"
-                  alt="Patrol Vehicle OD 23 R 6102"
-                  fill
-                  sizes="150px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-[#061A32]/20 group-hover:bg-transparent transition-colors" />
-                <span className="absolute bottom-1 left-1.5 text-[9px] font-bold text-white bg-slate-900/80 px-1 rounded">
-                  OD 23 R 6102
-                </span>
-              </Link>
-
-              <Link 
-                href="/about" 
-                className="group relative rounded-xl overflow-hidden aspect-[16/10] border border-slate-200 shadow-sm hover:shadow-md transition-all"
-              >
-                <Image
-                  src="/images/about/company-team-lineup.jpg"
-                  alt="S.S. Agency Security Guard Team Lineup"
-                  fill
-                  sizes="150px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-[#061A32]/20 group-hover:bg-transparent transition-colors" />
-                <span className="absolute bottom-1 left-1.5 text-[9px] font-bold text-white bg-slate-900/80 px-1 rounded">
-                  Guard Lineup
-                </span>
-              </Link>
-            </div>
           </motion.div>
 
         </div>
