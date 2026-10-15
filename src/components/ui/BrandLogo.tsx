@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 interface BrandLogoProps {
   variant?: 'full' | 'compact' | 'emblem' | 'footer';
+  theme?: 'light' | 'dark';
   className?: string;
   showLink?: boolean;
 }
@@ -84,27 +85,16 @@ export function ShieldEmblem({ className = 'w-10 h-10' }: { className?: string }
 
       {/* Central Dimensional 5-Point Star */}
       <g transform="translate(50, 52) scale(0.85)">
-        {/* Top arm light/shadow */}
         <polygon points="0,0 0,-34 10,-10" fill="url(#starLight)" />
         <polygon points="0,0 0,-34 -10,-10" fill="url(#starShadow)" />
-
-        {/* Right top arm */}
         <polygon points="0,0 32,-10 12,5" fill="url(#starLight)" />
         <polygon points="0,0 32,-10 10,-10" fill="url(#starShadow)" />
-
-        {/* Right bottom arm */}
         <polygon points="0,0 20,28 0,14" fill="url(#starLight)" />
         <polygon points="0,0 20,28 12,5" fill="url(#starShadow)" />
-
-        {/* Left bottom arm */}
         <polygon points="0,0 -20,28 -12,5" fill="url(#starLight)" />
         <polygon points="0,0 -20,28 0,14" fill="url(#starShadow)" />
-
-        {/* Left top arm */}
         <polygon points="0,0 -32,-10 -10,-10" fill="url(#starLight)" />
         <polygon points="0,0 -32,-10 -12,5" fill="url(#starShadow)" />
-
-        {/* Central golden highlight */}
         <circle cx="0" cy="0" r="2.5" fill="#FFFBEB" />
       </g>
     </svg>
@@ -113,9 +103,12 @@ export function ShieldEmblem({ className = 'w-10 h-10' }: { className?: string }
 
 export function BrandLogo({
   variant = 'compact',
+  theme = 'light',
   className = '',
   showLink = true,
 }: BrandLogoProps) {
+  const isLight = theme === 'light';
+
   const content = (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
       <div className="relative shrink-0 flex items-center justify-center">
@@ -133,19 +126,31 @@ export function BrandLogo({
       {variant !== 'emblem' && (
         <div className="flex flex-col text-left leading-tight">
           <div className="flex items-center gap-1.5">
-            <span className="font-extrabold tracking-wider text-xl sm:text-2xl text-white drop-shadow-sm font-sans">
-              S.S. <span className="text-[#D4AF37]">AGENCY</span>
+            <span
+              className={`font-black tracking-wider text-xl sm:text-2xl font-sans ${
+                isLight ? 'text-[#061A32]' : 'text-white drop-shadow-sm'
+              }`}
+            >
+              S.S. <span className="text-[#B45309]">AGENCY</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase text-[#D4AF37]">
+            <span
+              className={`text-[10px] sm:text-[11px] font-extrabold tracking-[0.22em] uppercase ${
+                isLight ? 'text-[#B45309]' : 'text-[#F4CC55]'
+              }`}
+            >
               SECURITY SERVICES
             </span>
           </div>
 
           {variant === 'footer' && (
-            <span className="text-[11px] text-slate-400 italic tracking-wide mt-0.5 font-medium">
+            <span
+              className={`text-[11px] tracking-wide mt-0.5 font-medium italic ${
+                isLight ? 'text-slate-500' : 'text-slate-400'
+              }`}
+            >
               Your Safety, Our Priority
             </span>
           )}
@@ -161,7 +166,7 @@ export function BrandLogo({
   return (
     <Link
       href="/"
-      className="group inline-flex items-center transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-md"
+      className="group inline-flex items-center transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B45309] rounded-md"
       aria-label="S.S. Agency Security Services Home"
     >
       {content}

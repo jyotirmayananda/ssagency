@@ -163,7 +163,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#031225] text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-[#D4AF37] selection:text-[#031225]">
+      <body className="bg-[#F8FAFC] text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
         <Toaster richColors position="top-right" />
         <Navbar />
         <main className="flex-1">{children}</main>

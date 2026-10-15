@@ -34,7 +34,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Column 1: Brand & Identity */}
           <div className="space-y-4">
-            <BrandLogo variant="footer" />
+            <BrandLogo variant="footer" theme="dark" />
             <p className="text-slate-400 text-sm leading-relaxed pt-2">
               S.S. Agency provides trusted security personnel and dependable manpower
               solutions designed to maintain safe environments and smooth daily operations

@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const iconMap: Record<string, React.ReactNode> = {
-  ShieldCheck: <ShieldCheck className="w-8 h-8 text-[#D4AF37]" />,
-  ChefHat: <ChefHat className="w-8 h-8 text-[#D4AF37]" />,
-  Sparkles: <Sparkles className="w-8 h-8 text-[#D4AF37]" />,
-  CarFront: <CarFront className="w-8 h-8 text-[#D4AF37]" />,
+  ShieldCheck: <ShieldCheck className="w-8 h-8 text-[#B45309]" />,
+  ChefHat: <ChefHat className="w-8 h-8 text-[#B45309]" />,
+  Sparkles: <Sparkles className="w-8 h-8 text-[#B45309]" />,
+  CarFront: <CarFront className="w-8 h-8 text-[#B45309]" />,
 };
 
 export default function ServicesPage() {
@@ -29,44 +29,44 @@ export default function ServicesPage() {
         backgroundImage="/images/fleet/fleet-formation-patrol.jpg"
       />
 
-      <section className="py-20 sm:py-24 bg-[#031225]">
+      <section className="py-20 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {SERVICES.map((service, idx) => (
             <div
               key={service.id}
               id={service.slug}
-              className="p-8 sm:p-10 rounded-2xl bg-[#061A32] border border-[#0B2B50] hover:border-[#D4AF37]/50 shadow-2xl transition-all"
+              className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200/90 hover:border-[#B45309]/60 shadow-sm hover:shadow-xl transition-all"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Left info */}
                 <div className="lg:col-span-8 space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-[#0B2B50] border border-[#D4AF37]/30 flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0">
                       {iconMap[service.iconName]}
                     </div>
                     <div>
-                      <span className="text-xs font-mono font-bold text-[#D4AF37] uppercase tracking-wider">
+                      <span className="text-xs font-mono font-bold text-[#B45309] uppercase tracking-wider">
                         0{idx + 1} // {service.category}
                       </span>
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-tight">
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-[#061A32] uppercase tracking-tight">
                         {service.title}
                       </h2>
                     </div>
                   </div>
 
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed pt-2">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-2">
                     {service.overview}
                   </p>
 
                   {/* Key Features */}
                   <div className="pt-2">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-3">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#B45309] mb-3">
                       Core Service Highlights:
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {service.keyFeatures.map((feat) => (
-                        <div key={feat} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                          <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                        <div key={feat} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                          <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -75,12 +75,12 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Right CTA box */}
-                <div className="lg:col-span-4 p-6 rounded-xl bg-[#031225] border border-[#0B2B50] space-y-4 flex flex-col justify-between h-full">
+                <div className="lg:col-span-4 p-6 rounded-xl bg-slate-50 border border-slate-200 space-y-4 flex flex-col justify-between h-full">
                   <div>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2">
+                    <h4 className="text-sm font-bold text-[#061A32] uppercase tracking-wider mb-2">
                       Need This Service?
                     </h4>
-                    <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">
                       Discuss your shift timings, headcount, and site location in Sambalpur with our
                       coordination team.
                     </p>
@@ -89,15 +89,15 @@ export default function ServicesPage() {
                   <div className="space-y-2.5">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-[#0B2B50] hover:bg-[#0E3663] border border-[#D4AF37]/40 transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#061A32] bg-white hover:bg-slate-100 border border-slate-300 transition-colors shadow-sm"
                     >
                       <span>Read Full Scope & FAQs</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#B45309]" />
                     </Link>
 
                     <Link
                       href={`/request-quote?service=${encodeURIComponent(service.title)}`}
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#031225] bg-gradient-to-r from-[#F4CC55] to-[#D4AF37] shadow-md hover:scale-[1.01] transition-transform"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 via-[#B45309] to-amber-700 shadow-md hover:scale-[1.01] transition-transform"
                     >
                       <span>Request a Quote</span>
                       <ArrowRight className="w-3.5 h-3.5" />

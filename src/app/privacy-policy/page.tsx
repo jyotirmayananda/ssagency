@@ -19,10 +19,10 @@ export default function PrivacyPolicyPage() {
         backgroundImage="/images/hero/hero-patrol-fleet.jpg"
       />
 
-      <section className="py-20 sm:py-24 bg-[#031225]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-300 text-sm sm:text-base leading-relaxed">
-          <div className="p-8 rounded-2xl bg-[#061A32] border border-[#0B2B50] space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight">
+      <section className="py-20 sm:py-24 bg-[#F8FAFC]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-slate-700 text-sm sm:text-base leading-relaxed">
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase tracking-tight">
               1. Information Collection
             </h2>
             <p>
@@ -32,14 +32,14 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-[#061A32] border border-[#0B2B50] space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight">
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase tracking-tight">
               2. Use of Information
             </h2>
             <p>
               The information you provide is utilized solely for:
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-400">
+            <ul className="list-disc pl-5 space-y-2 text-slate-600">
               <li>Responding to your specific security or manpower service enquiries.</li>
               <li>Preparing accurate staffing proposals and duty deployment schedules.</li>
               <li>
@@ -49,8 +49,8 @@ export default function PrivacyPolicyPage() {
             </ul>
           </div>
 
-          <div className="p-8 rounded-2xl bg-[#061A32] border border-[#0B2B50] space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight">
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase tracking-tight">
               3. Confidentiality & Security
             </h2>
             <p>
@@ -60,16 +60,16 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-[#061A32] border border-[#0B2B50] space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight">
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#061A32] uppercase tracking-tight">
               4. Contact for Privacy Matters
             </h2>
             <p>
               If you have any questions or wish to update your contact details on file, please
               contact our office:
             </p>
-            <div className="text-xs sm:text-sm text-slate-400 space-y-1 pt-2">
-              <p className="font-semibold text-white">{COMPANY.legalName}</p>
+            <div className="text-xs sm:text-sm text-slate-600 space-y-1 pt-2">
+              <p className="font-bold text-[#061A32]">{COMPANY.legalName}</p>
               <p>{COMPANY.address.full}</p>
               <p>Phone: {COMPANY.phoneDisplay}</p>
               <p>Email: {COMPANY.primaryEmail}</p>
