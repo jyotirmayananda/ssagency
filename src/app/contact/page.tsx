@@ -9,7 +9,7 @@ import { Highlight } from '@/components/chaiui/highlight';
 export const metadata: Metadata = {
   title: 'Contact us: S.S. Agency Security Services Sambalpur',
   description:
-    'Contact S.S. Agency for security guard services, cooking staff, cleaning staff, and driver manpower in Sambalpur, Odisha. Call +91 7853979637.',
+    'Contact S.S. Agency for security guard services, cooking staff, cleaning staff, and driver manpower in Sambalpur, Odisha. Call +91 98536 92650.',
 };
 
 export default function ContactPage() {

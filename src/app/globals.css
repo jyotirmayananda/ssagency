@@ -101,8 +101,17 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
     @apply bg-background text-foreground font-sans antialiased selection:bg-amber-100 selection:text-amber-950 dark:selection:bg-orange-950 dark:selection:text-orange-200;
   }
   h1, h2, h3, h4, h5, h6 {

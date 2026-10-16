@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function buildWhatsAppLink(message?: string): string {
-  const base = 'https://wa.me/917853979637';
+  const base = 'https://wa.me/919853692650';
   if (!message) {
     const defaultMsg = encodeURIComponent(
       'Hello S.S. Agency, I would like to enquire about your security and manpower services.'

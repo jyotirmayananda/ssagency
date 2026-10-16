@@ -106,7 +106,7 @@ export const SERVICES: ServiceDetail[] = [
       {
         question: 'How do I request security guard staffing for my organization?',
         answer:
-          'You can call us directly at +91 7853979637, send a WhatsApp message, or use the Request a Quote page. We will discuss your site parameters and arrange the deployment details.',
+          'You can call us directly at +91 98536 92650, send a WhatsApp message, or use the Request a Quote page. We will discuss your site parameters and arrange the deployment details.',
       },
       {
         question: 'Do you provide security personnel for temporary events?',

@@ -11,7 +11,7 @@ A complete, production-ready, corporate website for **S.S. AGENCY — SECURITY S
 - **Primary Tagline:** *Your Safety, Our Priority*
 - **Secondary Tagline:** *Your Trusted Security Partner*
 - **Headquarters:** Ambira Nagar, Khata No. 207/697, Plot No. 872/1355, Saraswati Vihar, Ainthapali, Sambalpur – 768006, Odisha, India.
-- **Phone:** `+91 7853979637`
+- **Phone:** `+91 9853692650`
 - **Emails:** `ssagency.sbpodi@gmail.com` | `sudam.pandasbp@gmail.com`
 - **Main Services:**
   1. Security Guard Services

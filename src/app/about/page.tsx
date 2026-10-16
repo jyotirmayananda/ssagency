@@ -30,12 +30,36 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Text description */}
           <div className="lg:col-span-7 space-y-4">
+            {/* Official Brand Badge */}
+            <div className="flex items-center gap-4 p-4 rounded-2xl border border-card-edge bg-card-fill">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white p-2 border border-border shadow-xs shrink-0 flex items-center justify-center">
+                <Image
+                  src="/images/branding/logo.png"
+                  alt="Official Samleswari Security Agency (SSA) Logo"
+                  width={140}
+                  height={95}
+                  className="object-contain max-h-full"
+                />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-brand font-semibold block">
+                  Official Brand Identity
+                </span>
+                <h3 className="font-brand text-base sm:text-lg font-bold text-foreground">
+                  Samleswari Security Agency
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+                  Operating in Sambalpur and Western Odisha under the S.S. Agency brand.
+                </p>
+              </div>
+            </div>
+
             <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
               Delivering dependable manpower solutions
             </h2>
 
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              S.S. Agency is a service agency headquartered in Saraswati Vihar, Ainthapali, Sambalpur. We specialize in providing verified service personnel across four primary operational domains, ensuring{' '}
+              S.S. Agency (Samleswari Security Agency) is a service agency headquartered in Saraswati Vihar, Ainthapali, Sambalpur. We specialize in providing verified service personnel across four primary operational domains, ensuring{' '}
               <Highlight>responsible supervisory oversight</Highlight>.
             </p>
 

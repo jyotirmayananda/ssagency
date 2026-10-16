@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Shield, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { COMPANY } from '@/lib/constants';
 
 export function Footer() {
@@ -17,18 +18,7 @@ export function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Column 1: Brand Wordmark & Tagline */}
         <div className="space-y-3">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 rounded-md border border-border flex items-center justify-center bg-card text-foreground">
-              <Shield className="w-3.5 h-3.5 text-brand" />
-            </div>
-            <span className="font-brand text-base font-medium tracking-tight text-foreground flex items-center">
-              S.S. Agency
-              <span
-                aria-hidden="true"
-                className="size-1 rounded-full bg-brand ml-1"
-              />
-            </span>
-          </Link>
+          <BrandLogo variant="footer" size="md" />
 
           <p className="text-xs text-muted-foreground leading-relaxed">
             Professional security personnel and essential manpower services for businesses, institutions, and properties across Sambalpur and Western Odisha.

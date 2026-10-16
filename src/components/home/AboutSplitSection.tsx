@@ -35,11 +35,25 @@ export function AboutSplitSection() {
         {/* Right: Editorial Content */}
         <div className="lg:col-span-6 space-y-5">
           <div className="space-y-2">
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-card-edge bg-card-fill text-xs text-muted-foreground mb-1">
+              <div className="relative size-4 rounded overflow-hidden bg-white p-0.5 shrink-0 flex items-center justify-center">
+                <Image
+                  src="/images/branding/ssa-emblem.png"
+                  alt="SSA Logo Emblem"
+                  width={16}
+                  height={16}
+                  className="object-contain"
+                />
+              </div>
+              <span className="font-medium text-foreground text-[11px] sm:text-xs">
+                Samleswari Security Agency
+              </span>
+            </div>
             <h2 className="text-2xl font-medium sm:text-[30px] text-foreground tracking-tight">
               A commitment to safety and service
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              S.S. Agency is a Sambalpur-based service provider delivering licensed security guard, cooking, cleaning, and driver manpower solutions with{' '}
+              S.S. Agency (Samleswari Security Agency) is a Sambalpur-based service provider delivering licensed security guard, cooking, cleaning, and driver manpower solutions with{' '}
               <Highlight>disciplined operational oversight</Highlight>.
             </p>
           </div>

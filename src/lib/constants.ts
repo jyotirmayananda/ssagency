@@ -4,7 +4,7 @@ export const SITE_DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://ssagency
 
 export const COMPANY: CompanyInfo = {
   name: 'S.S. AGENCY',
-  legalName: 'S.S. Agency: Security Services',
+  legalName: 'Samleswari Security Agency (S.S. Agency)',
   category: 'Security Services and Manpower Solutions',
   tagline: 'Your Safety, Our Priority',
   secondaryTagline: 'Your Trusted Security Partner',
@@ -17,16 +17,16 @@ export const COMPANY: CompanyInfo = {
     country: 'India',
     full: 'Ambira Nagar, Khata No. 207/697, Plot No. 872/1355, Saraswati Vihar, Ainthapali, Sambalpur - 768006, Odisha, India.',
   },
-  phone: '+917853979637',
-  phoneDisplay: '+91 7853979637',
+  phone: '+919853692650',
+  phoneDisplay: '+91 98536 92650',
   emails: [
     'ssagency.sbpodi@gmail.com',
     'sudam.pandasbp@gmail.com',
   ],
   primaryEmail: 'ssagency.sbpodi@gmail.com',
   alternateEmail: 'sudam.pandasbp@gmail.com',
-  whatsappNumber: '917853979637',
-  whatsappUrl: 'https://wa.me/917853979637',
+  whatsappNumber: '919853692650',
+  whatsappUrl: 'https://wa.me/919853692650',
   serviceCategories: [
     'Security guard services',
     'ATM cash van & CIT services',

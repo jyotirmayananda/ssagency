@@ -35,9 +35,13 @@ export const metadata: Metadata = {
     telephone: true,
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: `${COMPANY.name}: Security Services and Manpower Solutions`,
@@ -111,7 +115,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="overflow-x-hidden max-w-full" suppressHydrationWarning>
       <head>
         <ThemeScript defaultTheme="light" />
         <script
@@ -119,12 +123,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground relative isolate overflow-x-clip">
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground relative isolate overflow-x-hidden max-w-full">
         <ThemeProvider defaultTheme="light">
-          <Backdrop />
+          <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden select-none" aria-hidden="true">
+            <Backdrop />
+          </div>
           <Toaster position="top-right" />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 min-w-0 max-w-full overflow-x-hidden">{children}</main>
           <Footer />
           <WhatsAppButton />
           <BackToTop />

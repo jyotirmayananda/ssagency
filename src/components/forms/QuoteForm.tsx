@@ -218,7 +218,7 @@ export function QuoteForm() {
             id="quote-phone"
             type="tel"
             {...register('phone')}
-            placeholder="+91 78539 79637"
+            placeholder="+91 98536 92650"
             className={`w-full h-9 px-3 rounded-md border ${
               errors.phone ? 'border-red-500' : 'border-input'
             } bg-card text-foreground text-xs sm:text-sm placeholder:text-muted-foreground outline-none focus-visible:ring-[2px] focus-visible:ring-ring transition-colors`}

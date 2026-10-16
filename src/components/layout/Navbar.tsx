@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, ArrowUpRight, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { NAV_LINKS, COMPANY } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { ThemeSwitcher } from '@/components/chaiui/theme-switcher';
@@ -37,21 +38,10 @@ export function Navbar() {
           : 'bg-transparent'
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 sm:px-12">
-        <div className="flex items-center justify-between gap-5">
-          {/* Logo in ChaiUI Onest brand font with bouncing dot */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg border border-border flex items-center justify-center bg-card text-foreground group-hover:border-card-edge-hover transition-colors">
-              <Shield className="w-4 h-4 text-brand" />
-            </div>
-            <span className="font-brand text-lg sm:text-xl font-medium tracking-tight text-foreground flex items-center">
-              S.S. Agency
-              <span
-                aria-hidden="true"
-                className="size-1.5 rounded-full bg-brand ml-1 motion-safe:animate-[chai-bounce_2s_infinite]"
-              />
-            </span>
-          </Link>
+      <div className="max-w-6xl mx-auto px-4 py-3 sm:px-6 sm:py-4 md:px-12">
+        <div className="flex items-center justify-between gap-3 sm:gap-5">
+          {/* Official Brand Logo */}
+          <BrandLogo variant="compact" size="md" priority />
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">

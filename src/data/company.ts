@@ -83,7 +83,7 @@ export const WORKING_PROCESS: ProcessStep[] = [
     step: '01',
     title: 'Share your requirement',
     description:
-      'Reach out via phone (+91 7853979637), WhatsApp, or our online quote form detailing your required service, location, and staff count.',
+      'Reach out via phone (+91 98536 92650), WhatsApp, or our online quote form detailing your required service, location, and staff count.',
     icon: 'PhoneCall',
     highlights: [
       'Phone, WhatsApp, or web enquiry',
